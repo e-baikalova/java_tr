@@ -1,6 +1,8 @@
+import java.lang.Math;
+
 public class MyFirstProgram {
 
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		hello("world");
 		hello("user");
 
@@ -9,20 +11,21 @@ public class MyFirstProgram {
 
 		Rectangle r = new Rectangle(4.0, 5);
 		System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + r.area() );
+
 	}
 
 	public static void hello(String sText) {
 			System.out.println("Hello, " + sText + "!");
 	}
 
-//	function
-//	public static double area(Square s) {
-//		return s.l * s.l;  //square area
-//	}
+//	function to calculate square area
+	public static double area(Square s) {
+		return s.l * s.l;  //square area
+	}
 
-//  function
-//	public static double area(Rectangle r) {
-//		return r.a * r.b;  //rectangle area
-//	}
+//  function to calculate rectangle area
+	public static double area(Rectangle r) {
+		return r.a * r.b;  //rectangle area
+	}
 
 }
