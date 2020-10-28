@@ -14,12 +14,12 @@ public class PointsOperations {
     } else {
       System.out.println("Координаты точек не равны");
       System.out.println("Расстояние между точками (через функцию )= " + distance(p1, p2));
-      System.out.println("Расстояние между точек (через методы xCoordinate и yCoordinate) = " +
-          Math.sqrt(
-              Math.pow((p2.xCoordinate() - p1.xCoordinate()), 2) +
-                  Math.pow((p2.yCoordinate() - p1.yCoordinate()), 2))
-      );
-      System.out.println("Расстояние между точек (через метод distance в классе Point) = " + Point.distance (p1, p2));
+//      System.out.println("Расстояние между точек (через методы xCoordinate и yCoordinate) = " +
+//          Math.sqrt(
+//              Math.pow((p2.xCoordinate() - p1.xCoordinate()), 2) +
+//                  Math.pow((p2.yCoordinate() - p1.yCoordinate()), 2))
+//      );
+//      System.out.println("Расстояние между точек (через метод distance в классе Point) = " + Point.distance (p1, p2));
       System.out.println("Расстояние между точек (через метод distance в классе Point, передается 1 точка) = " + p1.distance (p2));
     }
   }

@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 public class PointsDistanceTests {
 
   @Test
-  public void testDistanceOnZero() {
+  public void testDistanceOnZeroPoints() {
     Point p1 = new Point(0, 0);
     Point p2 = new Point(0, 0);
     Assert.assertEquals(p1.distance(p2), 0);
@@ -18,16 +18,16 @@ public class PointsDistanceTests {
   }
 
   @Test
-  public void testDistanceOnSameXCoordinates() {
+  public void testDistanceOnSameYCoordinatesPoints() {
     Point p1 = new Point(-1, 2);
     Point p2 = new Point(1, 2);
     Assert.assertEquals(p1.distance(p2), 2);  //
   }
 
-  @Test //with 2 points transfered to method
+  @Test
   public void testDistanceOnDifferentPoints() {
     Point p1 = new Point(-1, 1);
     Point p2 = new Point(3, 2);
-    Assert.assertEquals(PointsOperations.distance(p1, p2) , 5.0);  //incorrect expected value
+    Assert.assertEquals(p1.distance(p2), 5.0);  //incorrect expected value
   }
 }
