@@ -7,24 +7,24 @@ public class PointsDistanceTests {
   public void testDistanceOnZero() {
     Point p1 = new Point(0, 0);
     Point p2 = new Point(0, 0);
-    Assert.assertEquals(Point.distance(p1, p2) , 0);
+    Assert.assertEquals(p1.distance(p2), 0);
   }
 
   @Test
   public void testDistanceOnSamePoints() {
     Point p1 = new Point(1, 2);
     Point p2 = new Point(1, 2);
-    Assert.assertEquals(PointsOperations.distance(p1, p2) , 0);
+    Assert.assertEquals(p1.distance(p2), 0);
   }
 
   @Test
   public void testDistanceOnSameXCoordinates() {
     Point p1 = new Point(-1, 2);
     Point p2 = new Point(1, 2);
-    Assert.assertEquals(PointsOperations.distance(p1, p2) , 2);  //
+    Assert.assertEquals(p1.distance(p2), 2);  //
   }
 
-  @Test
+  @Test //with 2 points transfered to method
   public void testDistanceOnDifferentPoints() {
     Point p1 = new Point(-1, 1);
     Point p2 = new Point(3, 2);

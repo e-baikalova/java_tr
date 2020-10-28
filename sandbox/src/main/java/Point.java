@@ -27,4 +27,13 @@ public class Point {
     double y2 = p2.yCoordinate();
     return Math.sqrt((Math.pow((x2 - x1), 2) + (Math.pow((y2 - y1), 2))));
   }
+
+  //    method calculates distance between points (one point is used in call)
+  public double distance(Point other) {
+    double x1 = this.xCoordinate();
+    double x2 = other.xCoordinate();
+    double y1 = this.yCoordinate();
+    double y2 = other.yCoordinate();
+    return Math.sqrt((Math.pow((x2 - x1), 2) + (Math.pow((y2 - y1), 2))));
+  }
 }

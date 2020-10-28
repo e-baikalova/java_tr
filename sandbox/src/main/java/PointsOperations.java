@@ -5,7 +5,7 @@ public class PointsOperations {
   public static void main(String[] args) {
     Point p1 = new Point(1, 0);
     System.out.println("Задана точка 1 (" + p1.x + " ; " + p1.y + " )");
-    Point p2 = new Point(1, -0);
+    Point p2 = new Point(1, 5);
     System.out.println("Задана точка 2 (" + p2.x + " ; " + p2.y + " )");
 
     //points comparison
@@ -20,6 +20,7 @@ public class PointsOperations {
                   Math.pow((p2.yCoordinate() - p1.yCoordinate()), 2))
       );
       System.out.println("Расстояние между точек (через метод distance в классе Point) = " + Point.distance (p1, p2));
+      System.out.println("Расстояние между точек (через метод distance в классе Point, передается 1 точка) = " + p1.distance (p2));
     }
   }
 
