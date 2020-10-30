@@ -1,3 +1,5 @@
+package stqa.addressbook.model;
+
 import java.sql.Date;
 
 public class ContactData {
@@ -90,7 +92,8 @@ public class ContactData {
     return homepage;
   }
 
-  public Date getBirthsday() { return birthsday;
+  public Date getBirthsday() {
+    return birthsday;
   }
 
   public Date getAnniversary() {
