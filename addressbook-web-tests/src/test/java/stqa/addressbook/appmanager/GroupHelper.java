@@ -1,6 +1,5 @@
 package stqa.addressbook.appmanager;
 
-import com.sun.javafx.binding.ExpressionHelperBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import stqa.addressbook.model.GroupData;
@@ -35,5 +34,13 @@ public class GroupHelper extends HelperBase {
 
   public void selectGroup() {
     click(By.name("selected[]"));
+  }
+
+  public void initGroupModification() {
+    click(By.xpath("(//input[@name='edit'])[2]"));
+  }
+
+  public void submitGroupModification() {
+    click(By.name("update"));
   }
 }
