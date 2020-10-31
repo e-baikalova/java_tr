@@ -1,12 +1,12 @@
 package stqa.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import stqa.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
 
-  public GroupHelper(WebDriver wd) {
+  public GroupHelper(FirefoxDriver wd) {
     super(wd);
   }
 

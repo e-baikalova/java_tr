@@ -1,6 +1,6 @@
 package stqa.addressbook.tests;
 
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 import stqa.addressbook.model.GroupData;
 
 public class GroupModificationTests extends TestBase {

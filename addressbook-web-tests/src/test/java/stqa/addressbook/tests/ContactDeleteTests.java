@@ -1,6 +1,9 @@
 package stqa.addressbook.tests;
 
-import org.testng.annotations.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class ContactDeleteTests extends TestBase {
 
@@ -11,20 +14,19 @@ public class ContactDeleteTests extends TestBase {
     app.getContactHelper().initSelectedContactDelete();
     Thread.sleep(5000);
     // Switching to Alert
-//    Alert simpleAlert = wd.switchTo().alert();
-//    simpleAlert.accept();
+    Alert simpleAlert = wd.switchTo().alert();
 //    simpleAlert.wait(5000);
-    wd.switchTo().alert().accept();
+//    wd.switchTo().alert().accept();
 
     // Capturing alert message.
-//    String alertMessage= wd.switchTo().alert().getText();
+//    String alertMessage= simpleAlert.getText();
 ////
 //    //  Displaying alert message
 //    System.out.println(alertMessage);
 //    Thread.sleep(5000);
 
     // Accepting alert
-//    simpleAlert.accept();
+    simpleAlert.accept();
 //    app.getNavigationHelper().returnToHomepage();
 //    app.getSessionHelper().logout();
   }

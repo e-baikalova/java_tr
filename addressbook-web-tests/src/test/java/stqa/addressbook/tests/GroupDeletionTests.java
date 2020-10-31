@@ -1,6 +1,6 @@
 package stqa.addressbook.tests;
 
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 public class GroupDeletionTests extends TestBase {
 
