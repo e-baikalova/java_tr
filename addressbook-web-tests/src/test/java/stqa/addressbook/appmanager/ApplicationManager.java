@@ -14,6 +14,7 @@ public class ApplicationManager {
   private ContactHelper contactHelper;
 
   public void init() {
+    //System.setProperty("webdriver.gecko.driver", "C:\\Training\\GeckoDriver\\geckodriver.exe");
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");

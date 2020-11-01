@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class HelperBase {
 
-  private FirefoxDriver wd;
+  protected FirefoxDriver wd;
 
   public HelperBase(FirefoxDriver wd) {
     this.wd = wd;

@@ -1,11 +1,11 @@
 package stqa.addressbook.appmanager;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import stqa.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
-  private FirefoxDriver wd;
 
   public ContactHelper(FirefoxDriver wd) {
     super(wd);
@@ -47,4 +47,25 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("(//input[@name='update'])[2]"));
   }
 
+  public void waitForAlertAndAccept() throws InterruptedException {
+    Alert simpleAlert = wd.switchTo().alert();
+//    simpleAlert.wait(5000);
+    // Capturing alert message.
+//    String alertMessage= simpleAlert.getText();
+    //  Displaying alert message
+//    System.out.println(alertMessage);
+    simpleAlert.accept();
+  }
+
+  public void submitContactDeleteFromForm() {
+    click(By.xpath("(//input[@name='update'])[3]"));
+  }
+
+  public void openContactDetails() {
+    click(By.xpath("//img[@alt='Details']"));
+  }
+
+  public void initContanctModificationFromDetails() {
+    click(By.name("modifiy"));
+  }
 }
