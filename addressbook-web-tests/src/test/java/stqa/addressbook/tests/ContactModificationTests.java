@@ -9,7 +9,8 @@ public class ContactModificationTests extends TestBase {
   public void testContactModificationFromContactsForm() throws Exception {
     app.getNavigationHelper().gotoHomepage();
     app.getContactHelper().initContanctModification();
-    app.getContactHelper().fillContactForm(new ContactData("mod_test_name", "test_lname", "test address", "test@email.com", "1263547"));
+    app.getContactHelper().fillContactForm(new ContactData("mod_test_name", "test_lname", "test address",
+        "test@email.com", "1263547", null), false);
     app.getContactHelper().submitContactModification();
     app.getNavigationHelper().gotoHomepage();
   }
@@ -19,7 +20,8 @@ public class ContactModificationTests extends TestBase {
     app.getNavigationHelper().gotoHomepage();
     app.getContactHelper().openContactDetails();
     app.getContactHelper().initContanctModificationFromDetails();
-    app.getContactHelper().fillContactForm(new ContactData("mod_test_name4", "test_lname_555", "test address", "test@email.com", "1263547"));
+    app.getContactHelper().fillContactForm(new ContactData("mod_test_name4", "test_lname_555",
+        "test address", "test@email.com", "1263547", null), false);
     app.getContactHelper().submitContactModification();
     app.getNavigationHelper().gotoHomepage();
   }

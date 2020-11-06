@@ -2,7 +2,6 @@ package stqa.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class NavigationHelper extends HelperBase {
 
@@ -11,14 +10,32 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void gotoGroupPage() {
-    click(By.linkText("groups"));
+
+    //check which page is currently opened
+    if ( (isElementPresent(By.tagName("h1"))) &&
+        (wd.findElement(By.tagName("h1")).getText().equals("Groups")) &&
+        (isElementPresent(By.name("new"))) ) {
+      return;
+    } else {
+      click(By.linkText("groups"));
+    }
   }
 
   public void gotoHomepage() {
-    click(By.linkText("home"));
+    // check if Homepage is already displayed
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    } else {
+      click(By.linkText("home"));
+    }
   }
 
   public void returnToHomepage() {
-    click(By.linkText("home page"));
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    } else {
+      click(By.linkText("home page"));
+    }
   }
+
 }
