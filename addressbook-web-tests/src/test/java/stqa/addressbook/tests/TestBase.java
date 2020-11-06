@@ -7,8 +7,7 @@ import stqa.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 
-  protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
-  //protected FirefoxDriver wd;
+  protected final ApplicationManager app = new ApplicationManager(BrowserType.IE);
 
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
