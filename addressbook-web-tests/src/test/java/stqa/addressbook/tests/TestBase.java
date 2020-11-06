@@ -16,7 +16,7 @@ public class TestBase {
 
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
-    app.getSessionHelper().logout();
+//    app.getSessionHelper().logout();
     app.stop();
   }
 

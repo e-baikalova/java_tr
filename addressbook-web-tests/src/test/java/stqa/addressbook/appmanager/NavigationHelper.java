@@ -30,12 +30,12 @@ public class NavigationHelper extends HelperBase {
     }
   }
 
-  public void returnToHomepage() {
-    if (isElementPresent(By.id("maintable"))) {
-      return;
-    } else {
-      click(By.linkText("home page"));
-    }
-  }
+//  public void returnToHomepage() {
+//    if (isElementPresent(By.id("maintable"))) {
+//      return;
+//    } else {
+//      click(By.linkText("home page"));
+//    }
+//  }
 
 }
