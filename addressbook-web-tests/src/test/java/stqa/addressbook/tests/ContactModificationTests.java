@@ -14,15 +14,24 @@ public class ContactModificationTests extends TestBase {
   public void testContactModificationFromContactsForm() throws Exception {
     app.getNavigationHelper().gotoHomepage();
     if (! app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData("test_name", "test_lname", "test address",
-          "test@email.com", "1263547","testgroup"), true);
+      String groupName = "testgroup3";
+      //check that group exists
+      app.getNavigationHelper().gotoGroupPage();
+      if (! app.getGroupHelper().isThereAGroup()) {
+        app.getGroupHelper().createGroup(new GroupData(groupName, null, null));
+      }
+      else {
+        groupName = app.getGroupHelper().getGroupName(0);
+      }
+      app.getContactHelper().createContact(new ContactData("test_name1", "test_lname", "test address",
+          "test@email.com", "1263547", groupName), true);
     }
     app.getNavigationHelper().gotoHomepage();
     List<ContactData> before = app.getContactHelper().getContactList();
     app.getContactHelper().initContanctModification(before.size()-1);
     //we save original id for record
     ContactData contact = new ContactData(before.get(before.size()-1).getId(), "mod_test_name", "test_lname", "test address",
-        "test@email.com", "1263547", "testgroup");
+        "test@email.com", "1263547", null);
     app.getContactHelper().fillContactForm(contact, false);
     app.getContactHelper().submitContactModification();
     app.getNavigationHelper().gotoHomepage();
@@ -47,20 +56,41 @@ public class ContactModificationTests extends TestBase {
   public void testContactModificationFromContactDetails() throws Exception {
     app.getNavigationHelper().gotoHomepage();
     if (! app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData("test_name_2", "test_lname", "test address",
-          "test@email.com", "1263547", "testgroup"), true);
+      String groupName = "testgroup3";
+      //check that group exists
+      app.getNavigationHelper().gotoGroupPage();
+      if (! app.getGroupHelper().isThereAGroup()) {
+        app.getGroupHelper().createGroup(new GroupData(groupName, null, null));
+      }
+      else {
+        groupName = app.getGroupHelper().getGroupName(0);
+      }
+      app.getContactHelper().createContact(new ContactData("test_name1", "test_lname", "test address",
+          "test@email.com", "1263547", groupName), true);
     }
     app.getNavigationHelper().gotoHomepage();
     List<ContactData> before = app.getContactHelper().getContactList();
+    ContactData contact = new ContactData(before.get(before.size()-1).getId(), "mod_test_name2", "test_lname", "test address",
+        "test@email.com", "1263547", null);
     app.getContactHelper().openContactDetails(before.size()-1);
     app.getContactHelper().initContanctModificationFromDetails();
-    app.getContactHelper().fillContactForm(new ContactData("mod_test_name2", "test_lname_555",
-        "test address", "test@email.com", "1263547", "testgroup"), false);
+    app.getContactHelper().fillContactForm(contact, false);
     app.getContactHelper().submitContactModification();
     app.getNavigationHelper().gotoHomepage();
     List<ContactData> after = app.getContactHelper().getContactList();
     //check that groups amount is not changed
     Assert.assertEquals(after.size(), before.size());
+    //check 2 lists
+    before.remove(before.size() - 1);
+    before.add(contact);
+
+    //list sorting
+    Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
+    before.sort(byId);
+    after.sort(byId);
+
+    //lists comparison
+    Assert.assertEquals(before, after);
   }
 
 }
