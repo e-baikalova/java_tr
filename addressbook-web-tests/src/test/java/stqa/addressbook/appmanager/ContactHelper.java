@@ -3,7 +3,7 @@ package stqa.addressbook.appmanager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import stqa.addressbook.model.ContactData;
@@ -39,16 +39,16 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void initContanctModification() {
-    click(By.cssSelector("img[alt=\"Edit\"]"));
+  public void initContanctModification(int index) {
+    wd.findElements(By.cssSelector("img[alt=\"Edit\"]")).get(index).click();
   }
 
   public void initSelectedContactDelete() {
     click(By.xpath("//input[@value='Delete']"));
   }
 
-  public void selectFirstContact() {
-    click(By.name("selected[]"));
+  public void selectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void selectAllContacts() {
@@ -73,8 +73,8 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("(//input[@name='update'])[3]"));
   }
 
-  public void openContactDetails() {
-    click(By.xpath("//img[@alt='Details']"));
+  public void openContactDetails(int index) {
+    wd.findElements(By.xpath("//img[@alt='Details']")).get(index).click();
   }
 
   public void initContanctModificationFromDetails() {
@@ -91,4 +91,9 @@ public class ContactHelper extends HelperBase {
     fillContactForm(contactData, true);
     submitContactCreation();
   }
+
+  public int getContactCount() {
+    return wd.findElements(By.xpath("//img[@alt='Details']")).size();
+  }
+
 }
