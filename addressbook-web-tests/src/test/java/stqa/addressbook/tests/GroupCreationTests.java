@@ -1,5 +1,6 @@
 package stqa.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.GroupData;
 
@@ -8,10 +9,11 @@ public class GroupCreationTests extends TestBase {
   @Test
   public void testGroupCreation() throws Exception {
     app.getNavigationHelper().gotoGroupPage();
-    app.getGroupHelper().initGroupCreation();
-    app.getGroupHelper().fillGroupForm(new GroupData("test123", null, null)); //setting default parameters
-    app.getGroupHelper().submitGroupCreation();
-    app.getGroupHelper().returnToGroups();
+    int before = app.getGroupHelper().getGroupCount();
+    app.getGroupHelper().createGroup(new GroupData("test1234", null, null));
+    int after = app.getGroupHelper().getGroupCount();
+    //check that groups amount is changed
+    Assert.assertEquals(after, before + 1);
   }
 
 }
