@@ -22,6 +22,14 @@ public class GroupDeletionTests extends TestBase {
     List<GroupData> after = app.getGroupHelper().getGroupList();
     //check that groups amount is changed
     Assert.assertEquals(after.size(), before.size() - 1);
+
+    //we remove the group from the original list to check that required group was deleted
+    before.remove(before.size()-1);
+    //compare 2 lists: original list and modified list
+//    for (int i=0; i<after.size(); i++){
+//      Assert.assertEquals(before.get(i), after.get(i));
+//    }
+    Assert.assertEquals(before, after);
   }
 
 }
