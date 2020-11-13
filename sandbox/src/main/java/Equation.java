@@ -26,7 +26,6 @@ public class Equation {
           else { n = -1; }
     }
 
-
   public int rootNumber(){
     return n;
   }
