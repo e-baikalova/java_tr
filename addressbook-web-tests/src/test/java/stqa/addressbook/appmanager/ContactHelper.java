@@ -31,6 +31,8 @@ public class ContactHelper extends HelperBase {
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
+
+
   }
 
   public void initContanctCreation() {
