@@ -15,29 +15,40 @@ public class ContactModificationTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().homepage();
     if (app.contact().list().size() == 0) {
-      String groupName = "testgroup3";
+      String groupName = "testgroup_1";
       //check that group exists
       app.goTo().groupPage();
       if (app.group().list().size() == 0) {
-        app.group().create(new GroupData(groupName, null, null));
+        app.group().create(new GroupData().withName(groupName));
       }
       else {
         groupName = app.group().getName(0);
       }
-      app.contact().createContact(new ContactData("test_name1", "test_lname", "test address",
-          "test@email.com", "1263547", groupName), true);
+      app.contact().createContact(new ContactData().
+              withFirstname("test_name2").
+              withLastname("test_lname").
+              withAddress("test address").
+              withEmail("test@email.com").
+              withPhone("1263547").
+              withGroup(groupName),
+          true);
     }
   }
 
-  @Test(enabled = false)
+  @Test
   public void testContactModificationFromContactsForm() throws Exception {
     app.goTo().homepage();
     List<ContactData> before = app.contact().list();
     int index = before.size()-1;
     app.contact().initModification(index);
     //we save original id for record
-    ContactData contact = new ContactData(before.get(index).getId(), "mod_test_name", "test_lname", "test address",
-        "test@email.com", "1263547", null);
+    ContactData contact = new ContactData().
+        withId(before.get(index).getId()).
+        withFirstname("test_name2").
+        withLastname("test_lname").
+        withAddress("test address").
+        withEmail("test@email.com").
+        withPhone("1263547");
     app.contact().fillForm(contact, false);
     app.contact().submitModification();
     app.goTo().homepage();
@@ -58,13 +69,18 @@ public class ContactModificationTests extends TestBase {
     Assert.assertEquals(before, after);
   }
 
-  @Test(enabled = false)
+  @Test
   public void testContactModificationFromContactDetails() throws Exception {
     app.goTo().homepage();
     List<ContactData> before = app.contact().list();
     int index = before.size()-1;
-    ContactData contact = new ContactData(before.get(index).getId(), "mod_test_name2", "test_lname", "test address",
-        "test@email.com", "1263547", null);
+    ContactData contact = new ContactData().
+        withId(before.get(index).getId()).
+        withFirstname("test_name2").
+        withLastname("test_lname").
+        withAddress("test address").
+        withEmail("test@email.com").
+        withPhone("1263547");
     app.contact().openDetails(index);
     app.contact().initModificationFromDetails();
     app.contact().fillForm(contact, false);

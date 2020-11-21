@@ -11,21 +11,26 @@ import java.util.List;
 
 public class ContactCreationTests extends TestBase {
 
-  @Test(enabled = false)
+  @Test
   public void testContactCreation() throws Exception {
     String groupName = "testgroup";
     //check that group exists
     app.goTo().groupPage();
     if (app.group().list().size() == 0) {
-      app.group().create(new GroupData(groupName, null, null));
+      app.group().create(new GroupData().withName(groupName));
     }
     else {
       groupName = app.group().getName(0);
     }
     app.goTo().homepage();
     List<ContactData> before = app.contact().list();
-    ContactData contact = new ContactData("test_name2", "test_lname", "test address",
-        "test@email.com", "1263547", groupName);
+    ContactData contact = new ContactData().
+        withFirstname("test_name2").
+        withLastname("test_lname").
+        withAddress("test address").
+        withEmail("test@email.com").
+        withPhone("1263547").
+        withGroup(groupName);
     app.contact().createContact(contact, true);
     app.goTo().homepage();
     List<ContactData> after = app.contact().list();
@@ -42,7 +47,7 @@ public class ContactCreationTests extends TestBase {
 
     //find MAX id within groups using lambda function
 //
-    contact.setId( after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() );
+    contact.withId( after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() );
     before.add(contact);
 
     //list sorting

@@ -10,12 +10,12 @@ import java.util.List;
 
 public class GroupCreationTests extends TestBase {
 
-  @Test(enabled = false)
+  @Test
   public void testGroupCreation() throws Exception {
     app.goTo().groupPage();
     List<GroupData> before = app.group().list();
 //    int before = app.getGroupHelper().getGroupCount();
-    GroupData group = new GroupData("test1234", null, null);
+    GroupData group = new GroupData().withName("test1");
     app.group().create(group);
     List<GroupData> after = app.group().list();
     //check that groups amount is changed

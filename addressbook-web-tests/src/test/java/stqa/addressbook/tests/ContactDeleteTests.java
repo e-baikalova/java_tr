@@ -18,17 +18,23 @@ public class ContactDeleteTests extends TestBase {
       //check that group exists
       app.goTo().groupPage();
       if (app.group().list().size() == 0) {
-        app.group().create(new GroupData(groupName, null, null));
+        app.group().create(new GroupData().withName(groupName));
       }
       else {
         groupName = app.group().getName(0);
       }
-      app.contact().createContact(new ContactData("test_name1", "test_lname", "test address",
-          "test@email.com", "1263547", groupName), true);
+      app.contact().createContact(new ContactData().
+          withFirstname("test_name2").
+          withLastname("test_lname").
+          withAddress("test address").
+          withEmail("test@email.com").
+          withPhone("1263547").
+          withGroup(groupName),
+          true);
     }
   }
 
-  @Test(enabled = false)
+  @Test
   public void testSingleSelectedContactDelete() throws Exception {
     app.goTo().homepage();
     List<ContactData> before = app.contact().list();
@@ -53,7 +59,7 @@ public class ContactDeleteTests extends TestBase {
 
   }
 
-  @Test(enabled = false)
+  @Test
   public void testContactDeleteFromForm() throws Exception {
     app.goTo().homepage();
     List<ContactData> before = app.contact().list();
@@ -76,7 +82,7 @@ public class ContactDeleteTests extends TestBase {
     Assert.assertEquals(before, after);
   }
 
-  @Test(enabled = true)
+  @Test
   public void testAllSelectedContactsDelete() throws Exception {
     app.goTo().homepage();
     List<ContactData> before = app.contact().list();
