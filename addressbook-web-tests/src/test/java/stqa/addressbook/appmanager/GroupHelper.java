@@ -3,9 +3,6 @@ package stqa.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import stqa.addressbook.model.GroupData;
 
 import java.util.ArrayList;
@@ -35,7 +32,7 @@ public class GroupHelper extends HelperBase {
     click(By.name("new"));
   }
 
-  public void deleteSelectedGroups() {
+  public void deleteSelected() {
     click(By.name("delete"));
   }
 
@@ -55,7 +52,7 @@ public class GroupHelper extends HelperBase {
    return isElementPresent(By.name("selected[]"));
   }
 
-  public void createGroup(GroupData group) {
+  public void create(GroupData group) {
     initGroupCreation();
     fillGroupForm(group); //setting default parameters
     submitGroupCreation();
@@ -66,7 +63,7 @@ public class GroupHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<GroupData> getGroupList() {
+  public List<GroupData> list() {
     List<GroupData> groups = new ArrayList<GroupData>();
     //find all elements with tag = span and type = group
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
@@ -79,8 +76,8 @@ public class GroupHelper extends HelperBase {
     return groups;
   }
 
-  public String getGroupName(int index) {
-    return getGroupList().get(index).getName();
+  public String getName(int index) {
+    return list().get(index).getName();
   }
 
   public void modifyGroup(int index, GroupData group) {
@@ -88,6 +85,12 @@ public class GroupHelper extends HelperBase {
     initGroupModification();
     fillGroupForm(group);
     submitGroupModification();
+    returnToGroups();
+  }
+
+  public void delete(int index) {
+    selectGroup(index);
+    deleteSelected();
     returnToGroups();
   }
 

@@ -12,22 +12,22 @@ public class GroupCreationTests extends TestBase {
 
   @Test(enabled = false)
   public void testGroupCreation() throws Exception {
-    app.getNavigationHelper().gotoGroupPage();
-    List<GroupData> before = app.getGroupHelper().getGroupList();
+    app.goTo().groupPage();
+    List<GroupData> before = app.group().list();
 //    int before = app.getGroupHelper().getGroupCount();
     GroupData group = new GroupData("test1234", null, null);
-    app.getGroupHelper().createGroup(group);
-    List<GroupData> after = app.getGroupHelper().getGroupList();
+    app.group().create(group);
+    List<GroupData> after = app.group().list();
     //check that groups amount is changed
     Assert.assertEquals(after.size(), before.size() + 1);
 
-    //find MAX id within groups
-    int max = 0;
-    for (GroupData g: after){
-      if (g.getId() > max) {
-        max = g.getId();
-      }
-    }
+//    //find MAX id within groups
+//    int max = 0;
+//    for (GroupData g: after){
+//      if (g.getId() > max) {
+//        max = g.getId();
+//      }
+//    }
 
 //    //find MAX id within groups using lambda function
 //
