@@ -17,11 +17,11 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void submitContactCreation() {
+  public void submitCreation() {
     click(By.xpath("(//input[@name='submit'])[2]"));
   }
 
-  public void fillContactForm(ContactData contactData, boolean creation) {
+  public void fillForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
@@ -38,27 +38,27 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void initContanctCreation() {
+  public void initCreation() {
     click(By.linkText("add new"));
   }
 
-  public void initContanctModification(int index) {
+  public void initModification(int index) {
     wd.findElements(By.cssSelector("img[alt=\"Edit\"]")).get(index).click();
   }
 
-  public void initSelectedContactDelete() {
+  public void deleteSelected() {
     click(By.xpath("//input[@value='Delete']"));
   }
 
-  public void selectContact(int index) {
+  public void select(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
-  public void selectAllContacts() {
+  public void selectAll() {
     click(By.id("MassCB"));
   }
 
-  public void submitContactModification() {
+  public void submitModification() {
     click(By.xpath("(//input[@name='update'])[2]"));
   }
 
@@ -72,15 +72,15 @@ public class ContactHelper extends HelperBase {
     simpleAlert.accept();
   }
 
-  public void submitContactDeleteFromForm() {
+  public void submitDeleteFromForm() {
     click(By.xpath("(//input[@name='update'])[3]"));
   }
 
-  public void openContactDetails(int index) {
+  public void openDetails(int index) {
     wd.findElements(By.xpath("//img[@alt='Details']")).get(index).click();
   }
 
-  public void initContanctModificationFromDetails() {
+  public void initModificationFromDetails() {
     click(By.name("modifiy"));
   }
 
@@ -90,16 +90,16 @@ public class ContactHelper extends HelperBase {
 
 
   public void createContact(ContactData contactData, boolean b) {
-    initContanctCreation();
-    fillContactForm(contactData, true);
-    submitContactCreation();
+    initCreation();
+    fillForm(contactData, true);
+    submitCreation();
   }
 
   public int getContactCount() {
     return wd.findElements(By.xpath("//img[@alt='Details']")).size();
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     // gets all rows in table
 //    WebElement mytable = wd.findElement(By.xpath("//*[@id=\"maintable\"]"));

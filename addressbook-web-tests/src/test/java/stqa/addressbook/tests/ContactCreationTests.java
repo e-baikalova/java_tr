@@ -1,7 +1,6 @@
 package stqa.addressbook.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.GroupData;
@@ -16,22 +15,20 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation() throws Exception {
     String groupName = "testgroup";
     //check that group exists
-    app.getNavigationHelper().gotoGroupPage();
-    if (! app.getGroupHelper().isThereAGroup()) {
-      app.getGroupHelper().createGroup(new GroupData(groupName, null, null));
+    app.goTo().groupPage();
+    if (app.group().list().size() == 0) {
+      app.group().create(new GroupData(groupName, null, null));
     }
     else {
-      groupName = app.getGroupHelper().getGroupName(0);
+      groupName = app.group().getName(0);
     }
-    app.getNavigationHelper().gotoHomepage();
-    List<ContactData> before = app.getContactHelper().getContactList();
+    app.goTo().homepage();
+    List<ContactData> before = app.contact().list();
     ContactData contact = new ContactData("test_name2", "test_lname", "test address",
         "test@email.com", "1263547", groupName);
-    app.getContactHelper().initContanctCreation();
-    app.getContactHelper().fillContactForm(contact, true);
-    app.getContactHelper().submitContactCreation();
-    app.getNavigationHelper().gotoHomepage();
-    List<ContactData> after = app.getContactHelper().getContactList();
+    app.contact().createContact(contact, true);
+    app.goTo().homepage();
+    List<ContactData> after = app.contact().list();
     //check that groups amount is changed
     Assert.assertEquals(after.size(), before.size()+1);
 

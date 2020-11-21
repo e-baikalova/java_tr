@@ -9,7 +9,7 @@ public class NavigationHelper extends HelperBase {
     super(wd);
   }
 
-  public void gotoGroupPage() {
+  public void groupPage() {
 
     //check which page is currently opened
     if ( (isElementPresent(By.tagName("h1"))) &&
@@ -21,7 +21,7 @@ public class NavigationHelper extends HelperBase {
     }
   }
 
-  public void gotoHomepage() {
+  public void homepage() {
     // check if Homepage is already displayed
     if (isElementPresent(By.id("maintable"))) {
       return;

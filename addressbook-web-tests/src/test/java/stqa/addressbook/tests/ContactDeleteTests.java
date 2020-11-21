@@ -12,33 +12,33 @@ public class ContactDeleteTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.getNavigationHelper().gotoHomepage();
-    if (! app.getContactHelper().isThereAContact()) {
-      String groupName = "testgroup";
+    app.goTo().homepage();
+    if (app.contact().list().size() == 0) {
+      String groupName = "testgroup3";
       //check that group exists
-      app.getNavigationHelper().gotoGroupPage();
-      if (! app.getGroupHelper().isThereAGroup()) {
-        app.getGroupHelper().createGroup(new GroupData(groupName, null, null));
+      app.goTo().groupPage();
+      if (app.group().list().size() == 0) {
+        app.group().create(new GroupData(groupName, null, null));
       }
       else {
-        groupName = app.getGroupHelper().getGroupName(0);
+        groupName = app.group().getName(0);
       }
-      app.getContactHelper().createContact(new ContactData("test_name1", "test_lname", "test address",
+      app.contact().createContact(new ContactData("test_name1", "test_lname", "test address",
           "test@email.com", "1263547", groupName), true);
     }
   }
 
   @Test(enabled = false)
   public void testSingleSelectedContactDelete() throws Exception {
-    app.getNavigationHelper().gotoHomepage();
-    List<ContactData> before = app.getContactHelper().getContactList();
+    app.goTo().homepage();
+    List<ContactData> before = app.contact().list();
     int index = before.size()-1;
-    app.getContactHelper().selectContact(index);
-    app.getContactHelper().initSelectedContactDelete();
-    app.getContactHelper().waitForAlertAndAccept();
-    app.getNavigationHelper().gotoHomepage();
+    app.contact().select(index);
+    app.contact().deleteSelected();
+    app.contact().waitForAlertAndAccept();
+    app.goTo().homepage();
     Thread.sleep(5000);
-    List<ContactData> after = app.getContactHelper().getContactList();
+    List<ContactData> after = app.contact().list();
     //check that contact amount is changed
     Assert.assertEquals(after.size(), index);
 //    Thread.sleep(5000);
@@ -55,28 +55,14 @@ public class ContactDeleteTests extends TestBase {
 
   @Test(enabled = false)
   public void testContactDeleteFromForm() throws Exception {
-//    app.getNavigationHelper().gotoHomepage();
-//    if (! app.getContactHelper().isThereAContact()) {
-//      String groupName = "testgroup2";
-//      //check that group exists
-//      app.getNavigationHelper().gotoGroupPage();
-//      if (! app.getGroupHelper().isThereAGroup()) {
-//        app.getGroupHelper().createGroup(new GroupData(groupName, null, null));
-//      }
-//      else {
-//        groupName = app.getGroupHelper().getGroupName(0);
-//      }
-//      app.getContactHelper().createContact(new ContactData("test_name1", "test_lname", "test address",
-//          "test@email.com", "1263547", groupName), true);
-//    }
-    app.getNavigationHelper().gotoHomepage();
-    List<ContactData> before = app.getContactHelper().getContactList();
+    app.goTo().homepage();
+    List<ContactData> before = app.contact().list();
     int index = before.size()-1;
-    app.getContactHelper().initContanctModification(index);
-    app.getContactHelper().submitContactDeleteFromForm();
-    app.getNavigationHelper().gotoHomepage();
+    app.contact().initModification(index);
+    app.contact().submitDeleteFromForm();
+    app.goTo().homepage();
     Thread.sleep(5000);
-    List<ContactData> after = app.getContactHelper().getContactList();
+    List<ContactData> after = app.contact().list();
     //check that contact amount is changed
     Assert.assertEquals(after.size(), index);
     Thread.sleep(5000);
@@ -92,32 +78,18 @@ public class ContactDeleteTests extends TestBase {
 
   @Test(enabled = true)
   public void testAllSelectedContactsDelete() throws Exception {
-//    app.getNavigationHelper().gotoHomepage();
-//    if (! app.getContactHelper().isThereAContact()) {
-//      String groupName = "testgroup3";
-//      //check that group exists
-//      app.getNavigationHelper().gotoGroupPage();
-//      if (! app.getGroupHelper().isThereAGroup()) {
-//        app.getGroupHelper().createGroup(new GroupData(groupName, null, null));
-//      }
-//      else {
-//        groupName = app.getGroupHelper().getGroupName(0);
-//      }
-//      app.getContactHelper().createContact(new ContactData("test_name1", "test_lname", "test address",
-//          "test@email.com", "1263547", groupName), true);
-//    }
-    app.getNavigationHelper().gotoHomepage();
-    List<ContactData> before = app.getContactHelper().getContactList();
+    app.goTo().homepage();
+    List<ContactData> before = app.contact().list();
     for (int i = 0; i < before.size(); i++){
       //we remove the contact from the original list to empty the list
       before.remove(i);
     }
-    app.getContactHelper().selectAllContacts();
-    app.getContactHelper().initSelectedContactDelete();
-    app.getContactHelper().waitForAlertAndAccept();
-    app.getNavigationHelper().gotoHomepage();
+    app.contact().selectAll();
+    app.contact().deleteSelected();
+    app.contact().waitForAlertAndAccept();
+    app.goTo().homepage();
     Thread.sleep(5000);
-    List<ContactData> after = app.getContactHelper().getContactList();
+    List<ContactData> after = app.contact().list();
     //check that groups contact is changed
     Assert.assertEquals(after.size(), before.size());
     Thread.sleep(5000);
