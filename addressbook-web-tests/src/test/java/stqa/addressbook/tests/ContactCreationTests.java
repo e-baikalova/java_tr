@@ -5,9 +5,7 @@ import org.testng.annotations.Test;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.GroupData;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 
 public class ContactCreationTests extends TestBase {
 
@@ -16,14 +14,15 @@ public class ContactCreationTests extends TestBase {
     String groupName = "testgroup";
     //check that group exists
     app.goTo().groupPage();
-    if (app.group().list().size() == 0) {
+    if (app.group().all().size() == 0) {
       app.group().create(new GroupData().withName(groupName));
     }
     else {
-      groupName = app.group().getName(0);
+      //get any group name from the set
+      groupName = app.group().getName();
     }
     app.goTo().homepage();
-    List<ContactData> before = app.contact().list();
+    Set<ContactData> before = app.contact().all();
     ContactData contact = new ContactData().
         withFirstname("test_name2").
         withLastname("test_lname").
@@ -33,30 +32,16 @@ public class ContactCreationTests extends TestBase {
         withGroup(groupName);
     app.contact().createContact(contact, true);
     app.goTo().homepage();
-    List<ContactData> after = app.contact().list();
+    Set<ContactData> after = app.contact().all();
     //check that groups amount is changed
     Assert.assertEquals(after.size(), before.size()+1);
 
-    //find MAX id within contacts
-//    int max = 0;
-//    for (ContactData c: after){
-//      if (c.getId() > max) {
-//        max = c.getId();
-//      }
-//    }
-
-    //find MAX id within groups using lambda function
-//
-    contact.withId( after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() );
+    //get MAX id of all contacts
+    contact.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() );
     before.add(contact);
 
-    //list sorting
-    Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
-    before.sort(byId);
-    after.sort(byId);
-
-    //сравнение множеств
-    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+    //compare sets
+    Assert.assertEquals(before, after);
   }
 
 }

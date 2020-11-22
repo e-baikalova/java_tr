@@ -4,43 +4,24 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.GroupData;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 
 public class GroupCreationTests extends TestBase {
 
   @Test
   public void testGroupCreation() throws Exception {
     app.goTo().groupPage();
-    List<GroupData> before = app.group().list();
-//    int before = app.getGroupHelper().getGroupCount();
+    Set<GroupData> before = app.group().all();
     GroupData group = new GroupData().withName("test1");
     app.group().create(group);
-    List<GroupData> after = app.group().list();
+    Set<GroupData> after = app.group().all();
     //check that groups amount is changed
     Assert.assertEquals(after.size(), before.size() + 1);
-
-//    //find MAX id within groups
-//    int max = 0;
-//    for (GroupData g: after){
-//      if (g.getId() > max) {
-//        max = g.getId();
-//      }
-//    }
-
-//    //find MAX id within groups using lambda function
-//
-//    group.setId( after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() );
+    //(g) -> g.getId()).max().getAsInt()  - anonymous function that gets MAX ID of all groups
+    group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
     before.add(group);
-
-    //list sorting
-    Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-    before.sort(byId);
-    after.sort(byId);
-
-    //сравнение множеств
-    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+    //compare groups sets
+    Assert.assertEquals(before, after);
   }
 
 }
