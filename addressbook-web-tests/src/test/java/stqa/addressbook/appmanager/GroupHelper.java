@@ -7,11 +7,11 @@ import stqa.addressbook.model.GroupData;
 import stqa.addressbook.model.Groups;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
+
+  private Groups groupCashe = null;
 
   public GroupHelper(WebDriver wd) {
     super(wd);
@@ -55,6 +55,7 @@ public class GroupHelper extends HelperBase {
     initGroupCreation();
     fillGroupForm(group); //setting default parameters
     submitGroupCreation();
+    groupCashe = null;
     returnToGroups();
   }
 
@@ -77,7 +78,10 @@ public class GroupHelper extends HelperBase {
   }
 
   public Groups all() {
-    Groups groups = new Groups();
+    if (groupCashe != null) {
+      return new Groups(groupCashe);
+    }
+    groupCashe = new Groups();
     //find all elements with tag = span and type = group
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
     for (WebElement element : elements) {
@@ -85,9 +89,9 @@ public class GroupHelper extends HelperBase {
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
 //      GroupData group = new GroupData().withId(id).withName(name);
 //      groups.add(group);
-      groups.add(new GroupData().withId(id).withName(name));
+      groupCashe.add(new GroupData().withId(id).withName(name));
     }
-    return groups;
+    return new Groups(groupCashe);
   }
 
   public String getName() {
@@ -100,6 +104,7 @@ public class GroupHelper extends HelperBase {
     initGroupModification();
     fillGroupForm(group);
     submitGroupModification();
+    groupCashe = null;
     returnToGroups();
   }
 
@@ -120,6 +125,7 @@ public class GroupHelper extends HelperBase {
   public void delete(GroupData group) {
     selectGroupById(group.getId());
     deleteSelected();
+    groupCashe = null;
     returnToGroups();
   }
 }

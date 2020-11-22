@@ -10,11 +10,11 @@ import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contacts;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
+
+  private Contacts contactCashe = null;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -22,6 +22,7 @@ public class ContactHelper extends HelperBase {
 
   public void submitCreation() {
     click(By.xpath("(//input[@name='submit'])[2]"));
+    contactCashe = null;
   }
 
   public void fillForm(ContactData contactData, boolean creation) {
@@ -37,8 +38,6 @@ public class ContactHelper extends HelperBase {
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
-
-
   }
 
   public void initCreation() {
@@ -51,6 +50,7 @@ public class ContactHelper extends HelperBase {
 
   public void deleteSelected() {
     click(By.xpath("//input[@value='Delete']"));
+    contactCashe = null;
   }
 
   public void select(int index) {
@@ -67,6 +67,7 @@ public class ContactHelper extends HelperBase {
 
   public void submitModification() {
     click(By.xpath("(//input[@name='update'])[2]"));
+    contactCashe = null;
   }
 
   public void waitForAlertAndAccept() throws InterruptedException {
@@ -81,6 +82,7 @@ public class ContactHelper extends HelperBase {
 
   public void submitDeleteFromForm() {
     click(By.xpath("(//input[@name='update'])[3]"));
+    contactCashe = null;
   }
 
   public void openDetails(int index) {
@@ -100,6 +102,7 @@ public class ContactHelper extends HelperBase {
     initCreation();
     fillForm(contactData, true);
     submitCreation();
+    contactCashe = null;
   }
 
   public int getContactCount() {
@@ -134,7 +137,10 @@ public class ContactHelper extends HelperBase {
 
 
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    if (contactCashe != null) {
+      return new Contacts(contactCashe);
+    }
+    contactCashe = new Contacts();
     // gets all rows in table
 //    WebElement mytable = wd.findElement(By.xpath("//*[@id=\"maintable\"]"));
     WebElement mytable = wd.findElement(By.cssSelector("#maintable"));
@@ -154,8 +160,8 @@ public class ContactHelper extends HelperBase {
       String name = cols.get(2).getText();
       String address = cols.get(3).getText();
       ContactData contact = new ContactData().withId(id).withFirstname(name).withLastname(lastname).withAddress(address);
-      contacts.add(contact);
+      contactCashe.add(contact);
     }
-    return contacts;
+    return new Contacts(contactCashe);
   }
 }
