@@ -1,11 +1,12 @@
 package stqa.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.ContactData;
+import stqa.addressbook.model.Contacts;
 import stqa.addressbook.model.GroupData;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
 
@@ -22,7 +23,7 @@ public class ContactCreationTests extends TestBase {
       groupName = app.group().getName();
     }
     app.goTo().homepage();
-    Set<ContactData> before = app.contact().all();
+    Contacts before = app.contact().all();
     ContactData contact = new ContactData().
         withFirstname("test_name2").
         withLastname("test_lname").
@@ -32,16 +33,17 @@ public class ContactCreationTests extends TestBase {
         withGroup(groupName);
     app.contact().createContact(contact, true);
     app.goTo().homepage();
-    Set<ContactData> after = app.contact().all();
+    Contacts after = app.contact().all();
     //check that groups amount is changed
-    Assert.assertEquals(after.size(), before.size()+1);
+    assertThat(after.size(), equalTo(before.size() + 1));
 
-    //get MAX id of all contacts
-    contact.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() );
-    before.add(contact);
+//    //get MAX id of all contacts
+//    contact.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() );
+//    before.add(contact);
 
     //compare sets
-    Assert.assertEquals(before, after);
+    assertThat(after, equalTo(
+        before.withAdded(contact.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() ))));
   }
 
 }

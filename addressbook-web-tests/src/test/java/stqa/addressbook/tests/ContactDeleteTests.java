@@ -4,10 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.ContactData;
+import stqa.addressbook.model.Contacts;
 import stqa.addressbook.model.GroupData;
 
 import java.util.List;
-import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactDeleteTests extends TestBase {
 
@@ -38,25 +41,24 @@ public class ContactDeleteTests extends TestBase {
   @Test
   public void testSingleSelectedContactDelete() throws Exception {
     app.goTo().homepage();
-    Set<ContactData> before = app.contact().all();
+    Contacts before = app.contact().all();
     ContactData deletedContact = before.iterator().next();
     app.contact().selectById(deletedContact.getId());
     app.contact().deleteSelected();
     app.contact().waitForAlertAndAccept();
     app.goTo().homepage();
     Thread.sleep(5000);
-    Set<ContactData> after = app.contact().all();
+    Contacts after = app.contact().all();
     //check that contact amount is changed
-    Assert.assertEquals(after.size(), before.size() - 1);
+    assertThat(after.size(), equalTo(before.size()-1));
 //    Thread.sleep(5000);
     //we remove the contact from the original list to check that required contact was deleted
-    before.remove(deletedContact);
 //    Thread.sleep(5000);
     //compare 2 lists: original list and modified list
 //    for (int i=0; i<after.size(); i++){
 //      Assert.assertEquals(before.get(i), after.get(i));
 //    }
-    Assert.assertEquals(before, after);
+    assertThat(after, equalTo(before.without(deletedContact)));
 
   }
 
