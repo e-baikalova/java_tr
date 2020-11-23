@@ -1,14 +1,10 @@
 package stqa.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contacts;
 import stqa.addressbook.model.GroupData;
-
-import java.util.Comparator;
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -45,9 +41,9 @@ public class ContactModificationTests extends TestBase {
     app.goTo().homepage();
     Contacts before = app.contact().all();
     int index = before.size()-1;
-    app.contact().initModification(index);
     //we save original id for record
     ContactData modifiedContact = before.iterator().next();
+    app.contact().initModificationById(modifiedContact.getId());
     ContactData contact = new ContactData().
         withId(modifiedContact.getId()).
         withFirstname("test_name2").
@@ -64,42 +60,26 @@ public class ContactModificationTests extends TestBase {
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 
-  @Test(enabled = false)
+  @Test
   public void testContactModificationFromContactDetails() throws Exception {
     app.goTo().homepage();
-    List<ContactData> before = app.contact().list();
-    int index = before.size()-1;
-    //we save original id for record
+    Contacts before = app.contact().all();
+    ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData().
-        withId(before.get(index).getId()).
+        withId(modifiedContact.getId()).
         withFirstname("test_name2").
         withFirstname("test_name3").
         withLastname("test_lname").
         withAddress("test address").
         withEmail("test@email.com").
         withPhone("1263547");
-    app.contact().openDetails(index);
-    //open first element on form
+    app.contact().openDetailsById(modifiedContact.getId());
     app.contact().initModificationFromDetails();
     app.contact().modify(contact, false);
     app.goTo().homepage();
     assertThat(app.contact().count(), equalTo(before.size()));
-    List<ContactData> after = app.contact().list();
-//    //check that groups amount is not changed
-//    Assert.assertEquals(after.size(), before.size());
-    //check 2 lists
-    before.remove(index);
-    before.add(contact);
-
-    //list sorting
-    Comparator<? super ContactData> byId = (c1, c2) -> {
-      return Integer.compare(c1.getId(), c2.getId());
-    };
-    before.sort(byId);
-    after.sort(byId);
-
-    //lists comparison
-    Assert.assertEquals(before, after);
+    Contacts after = app.contact().all();
+    assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 
 }
