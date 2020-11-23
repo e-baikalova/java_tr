@@ -189,8 +189,8 @@ public class ContactHelper extends HelperBase {
     waitForAlertAndAccept();
   }
 
-  public void deleteFromForm(int index) {
-    initModification(index);
+  public void deleteFromForm(int id) {
+    initModificationById(id);
     submitDeleteFromForm();
     contactCashe = null;
   }

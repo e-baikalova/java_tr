@@ -66,9 +66,9 @@ public class ContactDeleteTests extends TestBase {
   @Test(enabled = false)
   public void testContactDeleteFromForm() throws Exception {
     app.goTo().homepage();
-    List<ContactData> before = app.contact().list();
-    int index = before.size()-1;
-    app.contact().deleteFromForm(index);
+    Contacts before = app.contact().all();
+    ContactData deletedContact = before.iterator().next();
+    app.contact().deleteFromForm(deletedContact.getId());
     app.goTo().homepage();
     Thread.sleep(5000);
     assertThat(app.contact().count(), equalTo(before.size() - 1));
@@ -77,19 +77,18 @@ public class ContactDeleteTests extends TestBase {
 //    Assert.assertEquals(after.size(), before.size()-1);
     Thread.sleep(5000);
     //we remove the contact from the original list to check that required contact was deleted
-    before.remove(index);
 
     //compare 2 lists: original list and modified list
 //    for (int i=0; i<after.size(); i++){
 //      Assert.assertEquals(before.get(i), after.get(i));
 //    }
-    Assert.assertEquals(before, after);
+    assertThat(after, equalTo(before.without(deletedContact)));
   }
 
   @Test(enabled = false)
   public void testAllSelectedContactsDelete() throws Exception {
     app.goTo().homepage();
-    Set<ContactData> before = app.contact().all();
+    Contacts before = app.contact().all();
     before.clear();
 //    for (int i = 0; i < before.size(); i++){
 //      //we remove the contact from the original list to empty the list
@@ -99,7 +98,7 @@ public class ContactDeleteTests extends TestBase {
     app.goTo().homepage();
     Thread.sleep(5000);
     assertThat(app.contact().count(), equalTo(before.size()));
-    Set<ContactData> after = app.contact().all();
+    Contacts after = app.contact().all();
 //    //check that groups contact is changed
 //    Assert.assertEquals(after.size(), before.size());
     Thread.sleep(5000);
@@ -107,7 +106,7 @@ public class ContactDeleteTests extends TestBase {
 //    for (int i=0; i<after.size(); i++){
 //      Assert.assertEquals(before.get(i), after.get(i));
 //    }
-    Assert.assertEquals(before, after);
+    assertThat(after, equalTo(before));
   }
 
 }
