@@ -29,7 +29,7 @@ public class ContactCreationTests extends TestBase {
         withLastname("test_lname").
         withAddress("test address").
         withEmail("test@email.com").
-        withPhone("1263547").
+        withPhoneNumber("1263547").
         withGroup(groupName);
     app.contact().createContact(contact, true);
     app.goTo().homepage();

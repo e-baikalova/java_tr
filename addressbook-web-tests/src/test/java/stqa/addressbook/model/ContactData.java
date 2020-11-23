@@ -25,6 +25,26 @@ public class ContactData {
   private String secAddress = null;
   private String secHome = null;
   private String notes = null;
+  private String allPhones = null;
+  private String allEmails = null;
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public String getAllEmails() {
+    return allEmails;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
 
   @Override
   public String toString() {
@@ -90,7 +110,7 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withPhone(String phone) {
+  public ContactData withPhoneNumber(String phone) {
     this.phone = phone;
     return this;
   }
@@ -181,7 +201,7 @@ public class ContactData {
     return email;
   }
 
-  public String getPhone() {
+  public String getPhoneNumber() {
     return phone;
   }
 

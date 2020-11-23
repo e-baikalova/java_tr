@@ -1,6 +1,5 @@
 package stqa.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.ContactData;
@@ -8,7 +7,6 @@ import stqa.addressbook.model.Contacts;
 import stqa.addressbook.model.GroupData;
 
 import java.util.List;
-import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -33,7 +31,7 @@ public class ContactDeleteTests extends TestBase {
           withLastname("test_lname").
           withAddress("test address").
           withEmail("test@email.com").
-          withPhone("1263547").
+              withPhoneNumber("1263547").
           withGroup(groupName),
           true);
     }

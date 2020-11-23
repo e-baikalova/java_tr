@@ -30,7 +30,7 @@ public class ContactModificationTests extends TestBase {
               withLastname("test_lname").
               withAddress("test address").
               withEmail("test@email.com").
-              withPhone("1263547").
+              withPhoneNumber("1263547").
               withGroup(groupName),
           true);
     }
@@ -50,7 +50,7 @@ public class ContactModificationTests extends TestBase {
         withLastname("test_lname").
         withAddress("test address").
         withEmail("test@email.com").
-        withPhone("1263547");
+        withPhoneNumber("1263547");
     app.contact().modify(contact, false);
     app.goTo().homepage();
     assertThat(app.contact().count(), equalTo(before.size()));
@@ -72,7 +72,7 @@ public class ContactModificationTests extends TestBase {
         withLastname("test_lname").
         withAddress("test address").
         withEmail("test@email.com").
-        withPhone("1263547");
+        withPhoneNumber("1263547");
     app.contact().openDetailsById(modifiedContact.getId());
     app.contact().initModificationFromDetails();
     app.contact().modify(contact, false);

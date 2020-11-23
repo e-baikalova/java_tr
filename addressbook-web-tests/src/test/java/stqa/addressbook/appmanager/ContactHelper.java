@@ -29,8 +29,12 @@ public class ContactHelper extends HelperBase {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
+    type(By.name("home"), contactData.getPhoneNumber());
+    type(By.name("mobile"), contactData.getMobileNumber());
+    type(By.name("work"), contactData.getWorkNumber());
     type(By.name("email"), contactData.getEmail());
-    type(By.name("home"), contactData.getPhone());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
 
     //check element availability on form on different types of operations on form: creation or modification
     if ( creation ) {
@@ -176,7 +180,16 @@ public class ContactHelper extends HelperBase {
       String lastname = cols.get(1).getText();
       String name = cols.get(2).getText();
       String address = cols.get(3).getText();
-      ContactData contact = new ContactData().withId(id).withFirstname(name).withLastname(lastname).withAddress(address);
+      String allEmails = cols.get(4).getText();
+      String allPhones = cols.get(5).getText();
+      ContactData contact = new ContactData().
+          withId(id).
+          withFirstname(name).
+          withLastname(lastname).
+          withAddress(address).
+          withAllPhones(allPhones).
+          withAllEmails(allEmails).
+          withAddress(address);
       contactCashe.add(contact);
     }
     return new Contacts(contactCashe);
@@ -213,16 +226,24 @@ public class ContactHelper extends HelperBase {
     initModificationById(contact.getId());
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getAttribute("value");
     String phone = wd.findElement(By.name("home")).getAttribute("value");
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
+    String email = wd.findElement(By.name("email")).getAttribute("value");
+    String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().
         withId(contact.getId()).
         withFirstname(firstname).
         withLastname(lastname).
-        withPhone(phone).
+        withPhoneNumber(phone).
         withMobileNumber(mobile).
-        withWorkNumber(work);
+        withWorkNumber(work).
+        withEmail(email).
+        withEmail2(email2).
+        withEmail3(email3).
+        withAddress(address);
   }
 }
