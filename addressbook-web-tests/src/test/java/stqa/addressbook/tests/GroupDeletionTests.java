@@ -25,10 +25,10 @@ public class GroupDeletionTests extends TestBase {
     GroupData deletedGroup = before.iterator().next();
     //remove last group
     app.group().delete(deletedGroup);
+    assertThat(app.group().count(), equalTo(before.size() - 1));
     Groups after = app.group().all();
-    //check that groups amount is changed
-    assertThat(after.size(), equalTo(before.size()-1));
-
+//    //check that groups amount is changed
+//    assertThat(after.size(), equalTo(before.size()-1));
     //compare 2 lists: original list and modified list
 //    for (int i=0; i<after.size(); i++){
 //      Assert.assertEquals(before.get(i), after.get(i));

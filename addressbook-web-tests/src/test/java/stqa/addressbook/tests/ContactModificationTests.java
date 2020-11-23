@@ -55,12 +55,12 @@ public class ContactModificationTests extends TestBase {
         withAddress("test address").
         withEmail("test@email.com").
         withPhone("1263547");
-    app.contact().fillForm(contact, false);
-    app.contact().submitModification();
+    app.contact().modify(contact, false);
     app.goTo().homepage();
+    assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.contact().all();
-    //check that groups amount is not changed
-    assertThat(after.size(), equalTo(before.size()));
+//    //check that groups amount is not changed
+//    assertThat(after.size(), equalTo(before.size()));
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 
@@ -81,12 +81,12 @@ public class ContactModificationTests extends TestBase {
     app.contact().openDetails(index);
     //open first element on form
     app.contact().initModificationFromDetails();
-    app.contact().fillForm(contact, false);
-    app.contact().submitModification();
+    app.contact().modify(contact, false);
     app.goTo().homepage();
+    assertThat(app.contact().count(), equalTo(before.size()));
     List<ContactData> after = app.contact().list();
-    //check that groups amount is not changed
-    Assert.assertEquals(after.size(), before.size());
+//    //check that groups amount is not changed
+//    Assert.assertEquals(after.size(), before.size());
     //check 2 lists
     before.remove(index);
     before.add(contact);

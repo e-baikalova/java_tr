@@ -33,9 +33,10 @@ public class ContactCreationTests extends TestBase {
         withGroup(groupName);
     app.contact().createContact(contact, true);
     app.goTo().homepage();
+    assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.contact().all();
-    //check that groups amount is changed
-    assertThat(after.size(), equalTo(before.size() + 1));
+//    //check that groups amount is changed
+//    assertThat(after.size(), equalTo(before.size() + 1));
 
 //    //get MAX id of all contacts
 //    contact.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() );

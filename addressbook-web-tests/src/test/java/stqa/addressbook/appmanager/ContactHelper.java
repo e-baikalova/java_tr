@@ -50,7 +50,6 @@ public class ContactHelper extends HelperBase {
 
   public void deleteSelected() {
     click(By.xpath("//input[@value='Delete']"));
-    contactCashe = null;
   }
 
   public void select(int index) {
@@ -82,7 +81,6 @@ public class ContactHelper extends HelperBase {
 
   public void submitDeleteFromForm() {
     click(By.xpath("(//input[@name='update'])[3]"));
-    contactCashe = null;
   }
 
   public void openDetails(int index) {
@@ -105,7 +103,7 @@ public class ContactHelper extends HelperBase {
     contactCashe = null;
   }
 
-  public int getContactCount() {
+  public int count() {
     return wd.findElements(By.xpath("//img[@alt='Details']")).size();
   }
 
@@ -163,5 +161,32 @@ public class ContactHelper extends HelperBase {
       contactCashe.add(contact);
     }
     return new Contacts(contactCashe);
+  }
+
+  public void delete() throws InterruptedException {
+    deleteSelected();
+    contactCashe = null;
+    Thread.sleep(3000);
+    waitForAlertAndAccept();
+  }
+
+  public void deleteFromForm(int index) {
+    initModification(index);
+    submitDeleteFromForm();
+    contactCashe = null;
+  }
+
+  public void deleteAll() throws InterruptedException {
+    selectAll();
+    deleteSelected();
+    contactCashe = null;
+    Thread.sleep(3000);
+    waitForAlertAndAccept();
+  }
+
+  public void modify(ContactData contact, boolean b) {
+    fillForm(contact, false);
+    submitModification();
+    contactCashe = null;
   }
 }
