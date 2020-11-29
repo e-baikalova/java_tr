@@ -12,6 +12,8 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
 
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
+
+    implementation 'com.beust:jcommander:1.78'
 }
 
 test {
