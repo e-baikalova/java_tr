@@ -1,5 +1,6 @@
 package stqa.addressbook.model;
 
+import java.io.File;
 import java.sql.Date;
 
 public class ContactData {
@@ -27,6 +28,7 @@ public class ContactData {
   private String notes = null;
   private String allPhones = null;
   private String allEmails = null;
+  private File photo;
 
   public String getAllPhones() {
     return allPhones;
@@ -185,6 +187,11 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withPhoto(File photo) {
+    this.photo = photo;
+    return this;
+  }
+
   public int getId() {
     return id;
   }
@@ -272,4 +279,9 @@ public class ContactData {
   public String getGroup() {
     return group;
   }
+
+  public File getPhoto() {
+    return photo;
+  }
+
 }
