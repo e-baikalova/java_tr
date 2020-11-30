@@ -106,5 +106,4 @@ public class ContactDeleteTests extends TestBase {
 //    }
     assertThat(after, equalTo(before));
   }
-
 }

@@ -1,8 +1,11 @@
 package stqa.addressbook.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import java.io.File;
 import java.sql.Date;
 
+@XStreamAlias("contact")
 public class ContactData {
   private int id = Integer.MAX_VALUE;;
   private String firstname;
