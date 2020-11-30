@@ -17,7 +17,7 @@ public class ContactDeleteTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().homepage();
     if (app.contact().all().size() == 0) {
-      String groupName = "testgroup3";
+      String groupName = "test 1";
       //check that group exists
       app.goTo().groupPage();
       if (app.group().all().size() == 0) {

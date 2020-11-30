@@ -58,7 +58,7 @@ public class ContactCreationTests extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> validContactsCsv() throws IOException {
-    String groupName = "testgroup";
+    String groupName = "test 1";
     //check that group exists
     app.goTo().groupPage();
     if (app.group().all().size() == 0) {

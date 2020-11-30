@@ -15,7 +15,7 @@ public class ContactModificationTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().homepage();
     if (app.contact().list().size() == 0) {
-      String groupName = "testgroup_1";
+      String groupName = "test 1";
       //check that group exists
       app.goTo().groupPage();
       if (app.group().all().size() == 0) {

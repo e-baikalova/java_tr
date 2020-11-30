@@ -1,3 +1,5 @@
+//-c 3 -d json -f C:\Training\java_tr\addressbook-web-tests\src\test\resources\contacts.json
+
 package generators;
 
 import com.beust.jcommander.JCommander;
@@ -7,7 +9,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import stqa.addressbook.model.ContactData;
-import stqa.addressbook.model.GroupData;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class ContactDataGenerator {
 
-  @Parameter(names = "-c", description = "Group Count")
+  @Parameter(names = "-c", description = "Contacts Count")
   public int count;
 
   @Parameter(names = "-f", description = "Target File")
@@ -96,9 +97,9 @@ public class ContactDataGenerator {
           .withEmail(String.format("test_10%s@email.com", i))
           .withEmail2(String.format("test_20%s@email.com", i))
           .withEmail3(String.format("test_30%s@email.com", i))
-          .withPhoneNumber(String.format("00000%s", i))
-          .withMobileNumber(String.format("00(00)0%s", i))
-          .withWorkNumber(String.format("00-00-0%s", i))
+          .withPhoneNumber(String.format("100000%s", i))
+          .withMobileNumber(String.format("200(00)0%s", i))
+          .withWorkNumber(String.format("300-00-0%s", i))
           .withGroup("test 0")
       );
     }
