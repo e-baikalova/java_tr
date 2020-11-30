@@ -1,5 +1,6 @@
 package stqa.addressbook.model;
 
+import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import java.io.File;
@@ -7,21 +8,33 @@ import java.sql.Date;
 
 @XStreamAlias("contact")
 public class ContactData {
-  private int id = Integer.MAX_VALUE;;
+  @Expose
+  private int id = Integer.MAX_VALUE;
+  @Expose
   private String firstname;
+
   private String middlename = null;
+  @Expose
   private String lastname;
+  @Expose
   private String address;
   private String nickname = null;
   private String company = null;
   private String title = null;
+  @Expose
   private String phone;
+  @Expose
   private String group;
+  @Expose
   private String mobileNumber = null;
+  @Expose
   private String workNumber = null;
   private String fax = null;
+  @Expose
   private String email;
+  @Expose
   private String email2 = null;
+  @Expose
   private String email3 = null;
   private String homepage = null;
   private Date birthsday = null;

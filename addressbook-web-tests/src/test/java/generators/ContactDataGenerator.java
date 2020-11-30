@@ -3,8 +3,11 @@ package generators;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import stqa.addressbook.model.ContactData;
+import stqa.addressbook.model.GroupData;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -43,6 +46,8 @@ public class ContactDataGenerator {
       saveAsCsv(contacts, new File(file));
     } else if (format.equals("xml")) {
       saveAsXml(contacts, new File(file));
+    } else if (format.equals("json")) {
+      saveAsJson(contacts, new File(file));
     } else {
       System.out.println("data format " + format + " is not supported");
     }
@@ -60,6 +65,14 @@ public class ContactDataGenerator {
           contact.getPhoneNumber()
           ));
     }
+    writer.close();
+  }
+
+  private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
+    Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+    String json = gson.toJson(contacts);
+    Writer writer = new FileWriter(file);
+    writer.write(json);
     writer.close();
   }
 
@@ -82,7 +95,10 @@ public class ContactDataGenerator {
           .withAddress(String.format("test address %s", i))
           .withEmail(String.format("test_10%s@email.com", i))
           .withEmail2(String.format("test_20%s@email.com", i))
+          .withEmail3(String.format("test_30%s@email.com", i))
           .withPhoneNumber(String.format("00000%s", i))
+          .withMobileNumber(String.format("00(00)0%s", i))
+          .withWorkNumber(String.format("00-00-0%s", i))
           .withGroup("test 0")
       );
     }

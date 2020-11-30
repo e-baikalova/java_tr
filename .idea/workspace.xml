@@ -127,7 +127,7 @@
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="generators.ContactDataGenerator" />
       <module name="addressbook-web-tests.test" />
-      <option name="PROGRAM_PARAMETERS" value="-c 3 -f src/test/resources/contacts.xml -d xml" />
+      <option name="PROGRAM_PARAMETERS" value="-c 3 -f src/test/resources/contacts.json -d json" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/addressbook-web-tests" />
       <extension name="coverage">
         <pattern>
@@ -142,7 +142,7 @@
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
-      <option name="PROGRAM_PARAMETERS" value="-c 3 -f src/test/resources/groups.xml -d xml" />
+      <option name="PROGRAM_PARAMETERS" value="-c 3 -f src/test/resources/groups.json -d json" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/addressbook-web-tests" />
       <extension name="coverage">
         <pattern>
@@ -275,10 +275,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1603795290404" />
-    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606730528675">
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606761160662">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606730528675" />
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606761160662" />
     <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1603825337785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -311,22 +311,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="41" y="80" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606680820711" />
-    <state width="1323" height="264" key="GridCell.Tab.0.bottom" timestamp="1606732167331">
+    <state width="1323" height="84" key="GridCell.Tab.0.bottom" timestamp="1606761226689">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606732167331" />
-    <state width="1323" height="264" key="GridCell.Tab.0.center" timestamp="1606732167331">
+    <state width="1323" height="84" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606761226689" />
+    <state width="1323" height="84" key="GridCell.Tab.0.center" timestamp="1606761226689">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606732167331" />
-    <state width="1323" height="264" key="GridCell.Tab.0.left" timestamp="1606732167331">
+    <state width="1323" height="84" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606761226689" />
+    <state width="1323" height="84" key="GridCell.Tab.0.left" timestamp="1606761226689">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606732167331" />
-    <state width="1323" height="264" key="GridCell.Tab.0.right" timestamp="1606732167331">
+    <state width="1323" height="84" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606761226689" />
+    <state width="1323" height="84" key="GridCell.Tab.0.right" timestamp="1606761226689">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606732167331" />
+    <state width="1323" height="84" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606761226689" />
     <state width="1323" height="264" key="GridCell.Tab.1.bottom" timestamp="1606732167331">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -395,11 +395,6 @@
           <url>file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/stqa/addressbook/appmanager/ContactHelper.java</url>
           <line>237</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/stqa/addressbook/tests/ContactCreationTests.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
