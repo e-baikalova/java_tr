@@ -27,15 +27,23 @@ public class ContactHelper extends HelperBase {
 
   public void fillForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
     type(By.name("home"), contactData.getPhoneNumber());
     type(By.name("mobile"), contactData.getMobileNumber());
     type(By.name("work"), contactData.getWorkNumber());
+    type(By.name("fax"), contactData.getFax());
     type(By.name("email"), contactData.getEmail());
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
-    attach(By.name("photo"), contactData.getPhoto());
+    type(By.name("nickname"), contactData.getNickname());
+    type(By.name("company"), contactData.getCompany());
+    type(By.name("title"), contactData.getTitle());
+    type(By.name("homepage"), contactData.getHomepage());
+    type(By.name("address2"), contactData.getSecAddress());
+    type(By.name("phone2"), contactData.getSecHome());
+//    attach(By.name("photo"), contactData.getPhoto());
 
     //check element availability on form on different types of operations on form: creation or modification
     if ( creation ) {

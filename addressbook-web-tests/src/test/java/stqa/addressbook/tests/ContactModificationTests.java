@@ -14,11 +14,11 @@ public class ContactModificationTests extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().homepage();
-    if (app.contact().list().size() == 0) {
+    if (app.db().contacts().size() == 0) {
       String groupName = "test 1";
       //check that group exists
       app.goTo().groupPage();
-      if (app.group().all().size() == 0) {
+      if (app.db().groups().size() == 0) {
         app.group().create(new GroupData().withName(groupName));
       }
       else {
@@ -39,7 +39,7 @@ public class ContactModificationTests extends TestBase {
   @Test
   public void testContactModificationFromContactsView() throws Exception {
     app.goTo().homepage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     int index = before.size()-1;
     //we save original id for record
     ContactData modifiedContact = before.iterator().next();
@@ -47,23 +47,24 @@ public class ContactModificationTests extends TestBase {
     ContactData contact = new ContactData().
         withId(modifiedContact.getId()).
         withFirstname("test_name2").
-        withLastname("test_lname").
+        withMiddlename("J").
+        withLastname("test_lname2").
         withAddress("test address").
-        withEmail("test@email.com").
-        withPhoneNumber("1263547");
+        withEmail("test_new@email.com").
+        withPhoneNumber("111");
     app.contact().modify(contact, false);
     app.goTo().homepage();
     assertThat(app.contact().count(), equalTo(before.size()));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
 //    //check that groups amount is not changed
 //    assertThat(after.size(), equalTo(before.size()));
-    assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
+    assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact))); //    before.without(modifiedContact).withAdded(contact);
   }
 
-  @Test
+  @Test(enabled = false)
   public void testContactModificationFromContactDetails() throws Exception {
     app.goTo().homepage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData().
         withId(modifiedContact.getId()).
@@ -78,7 +79,7 @@ public class ContactModificationTests extends TestBase {
     app.contact().modify(contact, false);
     app.goTo().homepage();
     assertThat(app.contact().count(), equalTo(before.size()));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 

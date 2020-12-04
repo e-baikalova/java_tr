@@ -6,8 +6,6 @@ import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contacts;
 import stqa.addressbook.model.GroupData;
 
-import java.util.List;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -20,7 +18,7 @@ public class ContactDeleteTests extends TestBase {
       String groupName = "test 1";
       //check that group exists
       app.goTo().groupPage();
-      if (app.group().all().size() == 0) {
+      if (app.db().groups().size() == 0) {
         app.group().create(new GroupData().withName(groupName));
       }
       else {
@@ -40,14 +38,14 @@ public class ContactDeleteTests extends TestBase {
   @Test
   public void testSingleSelectedContactDelete() throws Exception {
     app.goTo().homepage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     ContactData deletedContact = before.iterator().next();
     app.contact().selectById(deletedContact.getId());
     app.contact().delete();
     app.goTo().homepage();
     Thread.sleep(5000);
     assertThat(app.contact().count(), equalTo(before.size() - 1));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
 //    //check that contact amount is changed
 //    assertThat(after.size(), equalTo(before.size()-1));
 //    Thread.sleep(5000);
@@ -64,13 +62,13 @@ public class ContactDeleteTests extends TestBase {
   @Test(enabled = false)
   public void testContactDeleteFromForm() throws Exception {
     app.goTo().homepage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     ContactData deletedContact = before.iterator().next();
     app.contact().deleteFromForm(deletedContact.getId());
     app.goTo().homepage();
     Thread.sleep(5000);
     assertThat(app.contact().count(), equalTo(before.size() - 1));
-    List<ContactData> after = app.contact().list();
+    Contacts after = app.db().contacts();
 //    //check that contact amount is changed
 //    Assert.assertEquals(after.size(), before.size()-1);
     Thread.sleep(5000);
@@ -86,7 +84,7 @@ public class ContactDeleteTests extends TestBase {
   @Test(enabled = false)
   public void testAllSelectedContactsDelete() throws Exception {
     app.goTo().homepage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     before.clear();
 //    for (int i = 0; i < before.size(); i++){
 //      //we remove the contact from the original list to empty the list
@@ -96,7 +94,7 @@ public class ContactDeleteTests extends TestBase {
     app.goTo().homepage();
     Thread.sleep(5000);
     assertThat(app.contact().count(), equalTo(before.size()));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
 //    //check that groups contact is changed
 //    Assert.assertEquals(after.size(), before.size());
     Thread.sleep(5000);

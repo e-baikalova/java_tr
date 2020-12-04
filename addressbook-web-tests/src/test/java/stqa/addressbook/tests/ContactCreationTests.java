@@ -61,8 +61,8 @@ public class ContactCreationTests extends TestBase {
     String groupName = "test 1";
     //check that group exists
     app.goTo().groupPage();
-    if (app.group().all().size() == 0) {
-      app.group().create(new GroupData().withName(groupName));
+    if (app.db().groups().size() == 0) {
+      app.group().create(new GroupData().withName("test1"));
     }
     else {
       //get any group name from the set
@@ -92,11 +92,11 @@ public class ContactCreationTests extends TestBase {
   @Test(dataProvider = "validContactsJson")
   public void testContactCreation(ContactData contact) throws Exception {
     app.goTo().homepage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.contact().createContact(contact, true);
     app.goTo().homepage();
     assertThat(app.contact().count(), equalTo(before.size() + 1));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
 //    //check that groups amount is changed
 //    assertThat(after.size(), equalTo(before.size() + 1));
 

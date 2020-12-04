@@ -20,14 +20,14 @@ public class ContactData {
   @Column(name = "firstname")
   private String firstname;
   @Column(name = "middlename")
-  private String middlename = null;
+  private String middlename;
   @Expose
   @Column(name = "lastname")
   private String lastname;
   @Expose
   @Type(type = "text")
   @Column(name = "address")
-  private String address;
+  private String address = null;
   @Column(name = "nickname")
   private String nickname = null;
   @Column(name = "company")
@@ -44,14 +44,14 @@ public class ContactData {
   @Expose
   @Column(name = "mobile")
   @Type(type = "text")
-  private String mobileNumber = null;
+  private String mobileNumber;
   @Expose
   @Column(name = "work")
   @Type(type = "text")
-  private String workNumber = null;
+  private String workNumber;
   @Column(name = "fax")
   @Type(type = "text")
-  private String fax = null;
+  private String fax;
   @Expose
   @Type(type = "text")
   @Column(name = "email")
@@ -59,18 +59,18 @@ public class ContactData {
   @Expose
   @Column(name = "email2")
   @Type(type = "text")
-  private String email2 = null;
+  private String email2;
   @Expose
   @Column(name = "email3")
   @Type(type = "text")
-  private String email3 = null;
+  private String email3;
   @Column(name = "homepage")
   @Type(type = "text")
   private String homepage = null;
   @Transient
-  private Date birthsday = null;
+  private Date birthsday;
   @Transient
-  private Date anniversary = null;
+  private Date anniversary;
   @Column(name = "address2")
   @Type(type = "text")
   private String secAddress = null;
@@ -81,9 +81,9 @@ public class ContactData {
   @Type(type = "text")
   private String notes = null;
   @Transient
-  private String allPhones = null;
+  private String allPhones;
   @Transient
-  private String allEmails = null;
+  private String allEmails;
   @Column(name = "photo")
   @Type(type = "text")
   private String photo;
@@ -107,15 +107,6 @@ public class ContactData {
   }
 
   @Override
-  public String toString() {
-    return "ContactData{" +
-        "id=" + id +
-        ", firstname='" + firstname + '\'' +
-        ", lastname='" + lastname + '\'' +
-        '}';
-  }
-
-  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -124,6 +115,7 @@ public class ContactData {
 
     if (id != that.id) return false;
     if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+    if (middlename != null ? !middlename.equals(that.middlename) : that.middlename != null) return false;
     return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
   }
 
@@ -131,8 +123,21 @@ public class ContactData {
   public int hashCode() {
     int result = id;
     result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+    result = 31 * result + (middlename != null ? middlename.hashCode() : 0);
     result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
     return result;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+        "id=" + id +
+        ", firstname='" + firstname + '\'' +
+        ", middlename='" + middlename + '\'' +
+        ", lastname='" + lastname + '\'' +
+        ", company='" + company + '\'' +
+        ", phone='" + phone + '\'' +
+        '}';
   }
 
   public ContactData withFirstname(String firstname) {
