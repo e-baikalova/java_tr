@@ -23,6 +23,8 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.2.3'
 //    implementation 'ch.qos.logback:logback-classic:1.1.5'
 
+    implementation 'mysql:mysql-connector-java:8.0.22'
+
 }
 
 test {
