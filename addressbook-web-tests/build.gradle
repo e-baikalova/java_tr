@@ -25,6 +25,8 @@ dependencies {
 
     implementation 'mysql:mysql-connector-java:8.0.22'
 
+    implementation 'org.hibernate:hibernate-core:5.4.25.Final'
+
 }
 
 test {

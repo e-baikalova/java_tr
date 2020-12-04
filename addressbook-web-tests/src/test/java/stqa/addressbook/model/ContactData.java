@@ -2,49 +2,91 @@ package stqa.addressbook.model;
 
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.sql.Date;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
   @Expose
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
   @Expose
+  @Column(name = "firstname")
   private String firstname;
-
+  @Column(name = "middlename")
   private String middlename = null;
   @Expose
+  @Column(name = "lastname")
   private String lastname;
   @Expose
+  @Type(type = "text")
+  @Column(name = "address")
   private String address;
+  @Column(name = "nickname")
   private String nickname = null;
+  @Column(name = "company")
   private String company = null;
+  @Column(name = "title")
   private String title = null;
   @Expose
+  @Type(type = "text")
+  @Column(name = "home")
   private String phone;
   @Expose
+  @Transient
   private String group;
   @Expose
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobileNumber = null;
   @Expose
+  @Column(name = "work")
+  @Type(type = "text")
   private String workNumber = null;
+  @Column(name = "fax")
+  @Type(type = "text")
   private String fax = null;
   @Expose
+  @Type(type = "text")
+  @Column(name = "email")
   private String email;
   @Expose
+  @Column(name = "email2")
+  @Type(type = "text")
   private String email2 = null;
   @Expose
+  @Column(name = "email3")
+  @Type(type = "text")
   private String email3 = null;
+  @Column(name = "homepage")
+  @Type(type = "text")
   private String homepage = null;
+  @Transient
   private Date birthsday = null;
+  @Transient
   private Date anniversary = null;
+  @Column(name = "address2")
+  @Type(type = "text")
   private String secAddress = null;
+  @Column(name = "phone2")
+  @Type(type = "text")
   private String secHome = null;
+  @Column(name = "notes")
+  @Type(type = "text")
   private String notes = null;
+  @Transient
   private String allPhones = null;
+  @Transient
   private String allEmails = null;
-  private File photo;
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
 
   public String getAllPhones() {
     return allPhones;
@@ -204,7 +246,7 @@ public class ContactData {
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -297,7 +339,7 @@ public class ContactData {
   }
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
 }
