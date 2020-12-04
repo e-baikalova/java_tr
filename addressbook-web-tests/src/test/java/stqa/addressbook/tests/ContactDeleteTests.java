@@ -56,7 +56,7 @@ public class ContactDeleteTests extends TestBase {
 //      Assert.assertEquals(before.get(i), after.get(i));
 //    }
     assertThat(after, equalTo(before.without(deletedContact)));
-
+    verifyContactsListInUi();
   }
 
   @Test(enabled = false)
@@ -79,6 +79,7 @@ public class ContactDeleteTests extends TestBase {
 //      Assert.assertEquals(before.get(i), after.get(i));
 //    }
     assertThat(after, equalTo(before.without(deletedContact)));
+    verifyContactsListInUi();
   }
 
   @Test(enabled = false)
@@ -103,5 +104,6 @@ public class ContactDeleteTests extends TestBase {
 //      Assert.assertEquals(before.get(i), after.get(i));
 //    }
     assertThat(after, equalTo(before));
+    verifyContactsListInUi();
   }
 }

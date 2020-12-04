@@ -234,8 +234,12 @@ public class ContactHelper extends HelperBase {
   public ContactData infoFromEditForm(ContactData contact) {
     initModificationById(contact.getId());
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String middlename = wd.findElement(By.name("middlenam")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
     String address = wd.findElement(By.name("address")).getAttribute("value");
+    String company = wd.findElement(By.name("company")).getAttribute("value");
+    String title = wd.findElement(By.name("title")).getAttribute("value");
+    String nickname = wd.findElement(By.name("nickname")).getAttribute("value");
     String phone = wd.findElement(By.name("home")).getAttribute("value");
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
@@ -243,16 +247,20 @@ public class ContactHelper extends HelperBase {
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     wd.navigate().back();
-    return new ContactData().
-        withId(contact.getId()).
-        withFirstname(firstname).
-        withLastname(lastname).
-        withPhoneNumber(phone).
-        withMobileNumber(mobile).
-        withWorkNumber(work).
-        withEmail(email).
-        withEmail2(email2).
-        withEmail3(email3).
-        withAddress(address);
+    return new ContactData()
+        .withId(contact.getId())
+        .withFirstname(firstname)
+        .withMiddlename(middlename)
+        .withLastname(lastname)
+        .withPhoneNumber(phone)
+        .withMobileNumber(mobile)
+        .withWorkNumber(work)
+        .withEmail(email)
+        .withEmail2(email2)
+        .withEmail3(email3)
+        .withAddress(address)
+        .withCompany(company)
+        .withTitle(title)
+        .withNickname(nickname);
   }
 }

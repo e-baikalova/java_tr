@@ -106,7 +106,10 @@ public class ContactCreationTests extends TestBase {
 
     //compare sets
     assertThat(after, equalTo(
-        before.withAdded(contact.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() ))));
+        before.withAdded(contact
+            .withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId() )
+            )));
+    verifyContactsListInUi();
   }
 
 //  @Test
