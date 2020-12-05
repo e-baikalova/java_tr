@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contacts;
 import stqa.addressbook.model.GroupData;
+import stqa.addressbook.model.Groups;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,24 +14,23 @@ public class ContactDeleteTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
+    Groups groups = app.db().groups();
+    Contacts contacts = app.db().contacts();
+    String groupName = "test 1";
     app.goTo().homepage();
-    if (app.contact().all().size() == 0) {
-      String groupName = "test 1";
+    if (groups.size() == 0) {
       //check that group exists
       app.goTo().groupPage();
-      if (app.db().groups().size() == 0) {
-        app.group().create(new GroupData().withName(groupName));
+      app.group().create(new GroupData().withName(groupName));
       }
-      else {
-        groupName = app.group().getName();
-      }
-      app.contact().createContact(new ContactData().
-          withFirstname("test_name2").
-          withLastname("test_lname").
-          withAddress("test address").
-          withEmail("test@email.com").
-              withPhoneNumber("1263547").
-          withGroup(groupName),
+    if (contacts.size() == 0) {
+      app.contact().createContact(new ContactData()
+              .withFirstname("test_name2")
+              .withLastname("test_lname")
+              .withAddress("test address")
+              .withEmail("test@email.com")
+              .withPhoneNumber("1263547")
+              .inGroup(groups.iterator().next()),
           true);
     }
   }

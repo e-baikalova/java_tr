@@ -7,6 +7,8 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.io.File;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -38,9 +40,17 @@ public class ContactData {
   @Type(type = "text")
   @Column(name = "home")
   private String phone;
-  @Expose
-  @Transient
-  private String group;
+//  @Expose
+//  @Transient
+//  private String group;
+
+  @JoinTable(name = "address_in_groups",
+      joinColumns = @JoinColumn(name="id"),
+      inverseJoinColumns = @JoinColumn(name = "group_id"))
+
+  @ManyToMany(fetch = FetchType.EAGER)
+  private Set<GroupData> groups = new HashSet<GroupData>();
+
   @Expose
   @Column(name = "mobile")
   @Type(type = "text")
@@ -126,23 +136,6 @@ public class ContactData {
     return result;
   }
 
-  @Override
-  public String toString() {
-    return "ContactData{" +
-        "id=" + id +
-        ", firstname='" + firstname + '\'' +
-        ", middlename='" + middlename + '\'' +
-        ", lastname='" + lastname + '\'' +
-        ", company='" + company + '\'' +
-        ", phone='" + phone + '\'' +
-        ", mobileNumber='" + mobileNumber + '\'' +
-        ", workNumber='" + workNumber + '\'' +
-        ", email='" + email + '\'' +
-        ", email2='" + email2 + '\'' +
-        ", email3='" + email3 + '\'' +
-        '}';
-  }
-
   public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
     return this;
@@ -183,10 +176,10 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
+//  public ContactData withGroup(String group) {
+//    this.group = group;
+//    return this;
+//  }
 
   public ContactData withMobileNumber(String mobileNumber) {
     this.mobileNumber = mobileNumber;
@@ -342,12 +335,43 @@ public class ContactData {
     return notes;
   }
 
-  public String getGroup() {
-    return group;
+//  public String getGroup() {
+//    return group;
+//  }
+
+  public Groups getGroups() {
+    return new Groups(groups);
   }
 
   public File getPhoto() {
     return new File(photo);
   }
 
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+        "id=" + id +
+        ", firstname='" + firstname + '\'' +
+        ", lastname='" + lastname + '\'' +
+        ", address='" + address + '\'' +
+        ", company='" + company + '\'' +
+        ", phone='" + phone + '\'' +
+        ", groups=" + groups +
+        ", mobileNumber='" + mobileNumber + '\'' +
+        ", workNumber='" + workNumber + '\'' +
+        ", email='" + email + '\'' +
+        ", email2='" + email2 + '\'' +
+        ", email3='" + email3 + '\'' +
+        '}';
+  }
+
+  public ContactData outOfGroup(GroupData group) {
+    groups.remove(group);
+    return this;
+  }
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contacts;
+import stqa.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,10 @@ public class ContactHelper extends HelperBase {
 
     //check element availability on form on different types of operations on form: creation or modification
     if ( creation ) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if (contactData.getGroups().size() > 0) {
+        //Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -262,5 +266,24 @@ public class ContactHelper extends HelperBase {
         .withCompany(company)
         .withTitle(title)
         .withNickname(nickname);
+  }
+
+  public void selectGroupViewByVisibleName(GroupData group) {
+//    GroupData group = contact.getGroups().iterator().next();
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
+//    System.out.println("group selected from drop down");
+  }
+
+  public void selectGroupByVisibleName(GroupData group) {
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
+  }
+
+  public void removeFromGroup(ContactData contact) {
+    selectById(contact.getId());
+    wd.findElement(By.name("remove")).click();
+  }
+
+  public void addToGroup() {
+    wd.findElement(By.name("add")).click();
   }
 }

@@ -3,11 +3,13 @@ package stqa.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contacts;
 import stqa.addressbook.model.GroupData;
+import stqa.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,6 +24,19 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
+
+  @BeforeMethod
+  public void ensurePreconditions() {
+    Groups groups = app.db().groups();
+    Contacts contacts = app.db().contacts();
+    String groupName = "test 1";
+    app.goTo().homepage();
+    if (groups.size() == 0) {
+      //check that group exists
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName(groupName));
+    }
+  }
 
   @DataProvider
   public Iterator<Object[]> validContactsXml() throws IOException {
@@ -58,15 +73,13 @@ public class ContactCreationTests extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> validContactsCsv() throws IOException {
+    Groups groups = app.db().groups();
     String groupName = "test 1";
-    //check that group exists
-    app.goTo().groupPage();
-    if (app.db().groups().size() == 0) {
-      app.group().create(new GroupData().withName("test1"));
-    }
-    else {
-      //get any group name from the set
-      groupName = app.group().getName();
+    app.goTo().homepage();
+    if (groups.size() == 0) {
+      //check that group exists
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName(groupName));
     }
     File photo = new File("src/test/resources/stru.png");
     List<Object[]> list = new ArrayList<Object[]>();
@@ -80,9 +93,8 @@ public class ContactCreationTests extends TestBase {
             .withAddress(split[2])
             .withEmail(split[3])
             .withPhoneNumber(split[4])
-            .withGroup(groupName)
             .withPhoto(photo)
-        });
+            .inGroup(groups.iterator().next())});
         line = reader.readLine();
       }
       return list.iterator();
@@ -91,6 +103,8 @@ public class ContactCreationTests extends TestBase {
 
   @Test(dataProvider = "validContactsJson")
   public void testContactCreation(ContactData contact) throws Exception {
+    Groups groups = app.db().groups();
+    File photo = new File("src/test/resources/stru.png");
     app.goTo().homepage();
     Contacts before = app.db().contacts();
     app.contact().createContact(contact, true);

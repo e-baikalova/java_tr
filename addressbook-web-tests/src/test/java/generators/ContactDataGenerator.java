@@ -100,7 +100,7 @@ public class ContactDataGenerator {
           .withPhoneNumber(String.format("100000%s", i))
           .withMobileNumber(String.format("200(00)0%s", i))
           .withWorkNumber(String.format("300-00-0%s", i))
-          .withGroup("test 0")
+//          .withGroup("test 0")
       );
     }
     return contacts;

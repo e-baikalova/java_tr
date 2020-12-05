@@ -35,8 +35,9 @@ public class ContactViewTests extends TestBase {
               withPhoneNumber("+7(999)111").
               withMobileNumber("22 222").
               withWorkNumber("33-333").
-              withSecAddress("secondary address").
-              withGroup(groupName),
+              withSecAddress("secondary address")
+//              withGroup(groupName)
+          ,
           true);
     }
   }
