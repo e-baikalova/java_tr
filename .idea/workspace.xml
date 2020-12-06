@@ -129,13 +129,51 @@
       <command value="gradle dependencies" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ContactRemoveFromGroupTests">
+  <component name="RunManager" selected="Gradle.ContactAddToGroupTests.testAddToGroup">
     <configuration name="ContactAddToGroupTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.ContactAddToGroupTests&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ContactAddToGroupTests.testAddToGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.ContactAddToGroupTests.testAddToGroup&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ContactAddToGroupTests.testAddToGroupNewApproach" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.ContactAddToGroupTests.testAddToGroupNewApproach&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -168,50 +206,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ContactRemoveFromGroupTests.testRemoveFromGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.ContactRemoveFromGroupTests.testRemoveFromGroup&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="GroupsAssignToContactTests.testRemoveFromGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.GroupsAssignToContactTests.testRemoveFromGroup&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="HbConnectionTest.ContactsGroupsMappingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.HbConnectionTest.ContactsGroupsMappingTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -245,19 +245,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.GroupsAssignToContactTests.testRemoveFromGroup" />
-      <item itemvalue="Gradle.HbConnectionTest.ContactsGroupsMappingTest" />
-      <item itemvalue="Gradle.ContactRemoveFromGroupTests.testRemoveFromGroup" />
       <item itemvalue="Gradle.ContactAddToGroupTests" />
       <item itemvalue="Gradle.ContactRemoveFromGroupTests" />
+      <item itemvalue="Gradle.ContactAddToGroupTests.testAddToGroupNewApproach" />
+      <item itemvalue="Gradle.ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach" />
+      <item itemvalue="Gradle.ContactAddToGroupTests.testAddToGroup" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ContactAddToGroupTests.testAddToGroup" />
+        <item itemvalue="Gradle.ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach" />
+        <item itemvalue="Gradle.ContactAddToGroupTests.testAddToGroupNewApproach" />
         <item itemvalue="Gradle.ContactRemoveFromGroupTests" />
         <item itemvalue="Gradle.ContactAddToGroupTests" />
-        <item itemvalue="Gradle.ContactRemoveFromGroupTests.testRemoveFromGroup" />
-        <item itemvalue="Gradle.GroupsAssignToContactTests.testRemoveFromGroup" />
-        <item itemvalue="Gradle.HbConnectionTest.ContactsGroupsMappingTest" />
       </list>
     </recent_temporary>
   </component>
@@ -325,38 +325,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="41" y="80" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606764995837" />
-    <state width="1323" height="230" key="GridCell.Tab.0.bottom" timestamp="1607180894319">
+    <state width="1323" height="161" key="GridCell.Tab.0.bottom" timestamp="1607282977146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607180894319" />
-    <state width="1323" height="230" key="GridCell.Tab.0.center" timestamp="1607180894319">
+    <state width="1323" height="161" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607282977146" />
+    <state width="1323" height="161" key="GridCell.Tab.0.center" timestamp="1607282977146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607180894319" />
-    <state width="1323" height="230" key="GridCell.Tab.0.left" timestamp="1607180894319">
+    <state width="1323" height="161" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607282977146" />
+    <state width="1323" height="161" key="GridCell.Tab.0.left" timestamp="1607282977146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607180894319" />
-    <state width="1323" height="230" key="GridCell.Tab.0.right" timestamp="1607180894319">
+    <state width="1323" height="161" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607282977146" />
+    <state width="1323" height="161" key="GridCell.Tab.0.right" timestamp="1607282977146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607180894319" />
-    <state width="1323" height="230" key="GridCell.Tab.1.bottom" timestamp="1607180894319">
+    <state width="1323" height="161" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607282977146" />
+    <state width="1323" height="161" key="GridCell.Tab.1.bottom" timestamp="1607282977146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607180894319" />
-    <state width="1323" height="230" key="GridCell.Tab.1.center" timestamp="1607180894319">
+    <state width="1323" height="161" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607282977146" />
+    <state width="1323" height="161" key="GridCell.Tab.1.center" timestamp="1607282977146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1607180894319" />
-    <state width="1323" height="230" key="GridCell.Tab.1.left" timestamp="1607180894319">
+    <state width="1323" height="161" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1607282977146" />
+    <state width="1323" height="161" key="GridCell.Tab.1.left" timestamp="1607282977146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1607180894319" />
-    <state width="1323" height="230" key="GridCell.Tab.1.right" timestamp="1607180894319">
+    <state width="1323" height="161" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1607282977146" />
+    <state width="1323" height="161" key="GridCell.Tab.1.right" timestamp="1607282977146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1607180894319" />
+    <state width="1323" height="161" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1607282977146" />
     <state x="4" y="48" key="NewModule_or_Project.wizard" timestamp="1604053842785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
