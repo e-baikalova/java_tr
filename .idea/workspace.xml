@@ -141,7 +141,7 @@
       <command value="gradle dependencies" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.LoginTests.testLogin">
+  <component name="RunManager" selected="Gradle.RegistrationTests.testRegistration">
     <configuration name="ContactAddToGroupTests.testAddToGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -265,8 +265,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.LoginTests.testLogin" />
         <item itemvalue="Gradle.RegistrationTests.testRegistration" />
+        <item itemvalue="Gradle.LoginTests.testLogin" />
         <item itemvalue="Gradle.LoginTests.testLogin" />
         <item itemvalue="Gradle.ContactAddToGroupTests.testAddToGroup" />
         <item itemvalue="Gradle.ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach" />
@@ -317,38 +317,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1607878944869" />
-    <state width="1323" height="264" key="GridCell.Tab.0.bottom" timestamp="1607883175470">
+    <state width="1323" height="212" key="GridCell.Tab.0.bottom" timestamp="1607889785176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607883175470" />
-    <state width="1323" height="264" key="GridCell.Tab.0.center" timestamp="1607883175470">
+    <state width="1323" height="212" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607889785176" />
+    <state width="1323" height="212" key="GridCell.Tab.0.center" timestamp="1607889785176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607883175470" />
-    <state width="1323" height="264" key="GridCell.Tab.0.left" timestamp="1607883175470">
+    <state width="1323" height="212" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607889785176" />
+    <state width="1323" height="212" key="GridCell.Tab.0.left" timestamp="1607889785175">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607883175470" />
-    <state width="1323" height="264" key="GridCell.Tab.0.right" timestamp="1607883175470">
+    <state width="1323" height="212" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607889785175" />
+    <state width="1323" height="212" key="GridCell.Tab.0.right" timestamp="1607889785176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607883175470" />
-    <state width="1323" height="264" key="GridCell.Tab.1.bottom" timestamp="1607883175470">
+    <state width="1323" height="212" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607889785176" />
+    <state width="1323" height="212" key="GridCell.Tab.1.bottom" timestamp="1607889785253">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607883175470" />
-    <state width="1323" height="264" key="GridCell.Tab.1.center" timestamp="1607883175470">
+    <state width="1323" height="212" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607889785253" />
+    <state width="1323" height="212" key="GridCell.Tab.1.center" timestamp="1607889785253">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1607883175470" />
-    <state width="1323" height="264" key="GridCell.Tab.1.left" timestamp="1607883175470">
+    <state width="1323" height="212" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1607889785253" />
+    <state width="1323" height="212" key="GridCell.Tab.1.left" timestamp="1607889785253">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1607883175470" />
-    <state width="1323" height="264" key="GridCell.Tab.1.right" timestamp="1607883175470">
+    <state width="1323" height="212" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1607889785253" />
+    <state width="1323" height="212" key="GridCell.Tab.1.right" timestamp="1607889785253">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="264" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1607883175470" />
+    <state width="1323" height="212" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1607889785253" />
     <state x="413" y="124" key="extract.method.dialog" timestamp="1607881456948">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -368,8 +368,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/stqa/mantis/tests/RegistrationTests.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="32" />
+          <line>30</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/stqa/mantis/appmanager/JamesHelper.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/stqa/mantis/appmanager/JamesHelper.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/stqa/mantis/appmanager/JamesHelper.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
