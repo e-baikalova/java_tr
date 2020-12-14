@@ -15,13 +15,14 @@ import java.util.regex.MatchResult;
 
 public class ApplicationManager {
   private final Properties properties;
-  private WebDriver wd;
-
+  WebDriver wd;
   private String browser;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
+  private UsersHelper usersHelper;
+
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -91,5 +92,12 @@ public class ApplicationManager {
       jamesHelper = new JamesHelper(this);
     }
     return jamesHelper;
+  }
+
+  public UsersHelper users() {
+    if (usersHelper == null) {
+      usersHelper = new UsersHelper(this);
+    }
+    return usersHelper;
   }
 }

@@ -5,6 +5,7 @@
         <classes>
             <class name="stqa.mantis.tests.LoginTests" />
             <class name="stqa.mantis.tests.RegistrationTests" />
+            <class name="stqa.mantis.tests.PasswordChangeTests" />
         </classes>
     </test>
 </suite>

@@ -14,7 +14,7 @@ import static org.testng.Assert.assertTrue;
 
 public class RegistrationTests extends TestBase{
 
-//  @BeforeMethod
+//  @BeforeMethod //should be disable for james, enabled for mailserver inside tests
   public void startMailServer() {
     app.mail().start();
   }
@@ -24,11 +24,11 @@ public class RegistrationTests extends TestBase{
     long now = System.currentTimeMillis();
     String username = "user_" + now;
     String password = "password";
-//    String email = String.format("%s@localhost.localdomain", username);
+//    String email = String.format("%s@localhost.localdomain", username); //used for mailserver in tests
     String email = String.format("%s@localhost", username);
     app.james().createUser(username, password);
     app.registration().start(username, email);
-//    List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
+//    List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000); //used for mailserver in tests
     List<MailMessage> mailMessages = app.james().waitForMail(username, password, 60000);
     String confirmationLink = findConfirmationLink(mailMessages, email);
     app.registration().finish(confirmationLink, password);
@@ -41,7 +41,7 @@ public class RegistrationTests extends TestBase{
     return regex.getText(mailMessage.text);
   }
 
-//  @AfterMethod(alwaysRun = true)
+//  @AfterMethod(alwaysRun = true) //should be disable for james, enabled for mailserver inside tests
   public void stopMailServer() {
     app.mail().stop();
   }

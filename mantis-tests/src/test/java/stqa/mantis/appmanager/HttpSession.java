@@ -35,9 +35,6 @@ public class HttpSession {
     post.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
     CloseableHttpResponse response = httpclient.execute(post);
     String body = getTextFrom(response);
-    System.out.println("POST2:   " + post);
-    System.out.println("params2:   " + params);
-    System.out.println("response2:   " + response);
     return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
   }
 
