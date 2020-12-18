@@ -57,16 +57,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="addressbook-web-tests" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="sandbox" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -107,7 +98,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="public" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mantis-tests/src/test/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/rest-sample" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2862069" />
@@ -141,51 +132,13 @@
       <command value="gradle dependencies" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.RegistrationTests.testRegistration">
+  <component name="RunManager" selected="TestNG.IpServiceTests.testMyIp">
     <configuration name="ContactAddToGroupTests.testAddToGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.ContactAddToGroupTests.testAddToGroup&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ContactAddToGroupTests.testAddToGroupNewApproach" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.ContactAddToGroupTests.testAddToGroupNewApproach&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stqa.addressbook.tests.ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -218,6 +171,25 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="PasswordChangeTests.passwordChangeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/mantis-tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;stqa.mantis.tests.PasswordChangeTests.passwordChangeTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="RegistrationTests.testRegistration" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -236,6 +208,34 @@
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
+    </configuration>
+    <configuration name="IpServiceTests.testMyIp" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="soap-sample" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stqa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="stqa" />
+      <option name="MAIN_CLASS_NAME" value="stqa.IpServiceTests" />
+      <option name="METHOD_NAME" value="testMyIp" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="TestNG">
       <useClassPathOnly />
@@ -257,19 +257,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.ContactAddToGroupTests.testAddToGroupNewApproach" />
-      <item itemvalue="Gradle.ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach" />
       <item itemvalue="Gradle.ContactAddToGroupTests.testAddToGroup" />
       <item itemvalue="Gradle.LoginTests.testLogin" />
       <item itemvalue="Gradle.RegistrationTests.testRegistration" />
+      <item itemvalue="Gradle.PasswordChangeTests.passwordChangeTest" />
+      <item itemvalue="TestNG.IpServiceTests.testMyIp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.IpServiceTests.testMyIp" />
+        <item itemvalue="Gradle.PasswordChangeTests.passwordChangeTest" />
         <item itemvalue="Gradle.RegistrationTests.testRegistration" />
         <item itemvalue="Gradle.LoginTests.testLogin" />
         <item itemvalue="Gradle.LoginTests.testLogin" />
-        <item itemvalue="Gradle.ContactAddToGroupTests.testAddToGroup" />
-        <item itemvalue="Gradle.ContactRemoveFromGroupTests.testRemoveFromGroupNewApproach" />
       </list>
     </recent_temporary>
   </component>
@@ -313,50 +313,70 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1607690381256" />
-    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1607878944869">
+    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1607936096895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1607878944869" />
-    <state width="1323" height="212" key="GridCell.Tab.0.bottom" timestamp="1607920753628">
+    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1607936096895" />
+    <state x="602" y="116" key="#xdebugger.XInspectDialog" timestamp="1607963774065">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="212" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607920753628" />
-    <state width="1323" height="212" key="GridCell.Tab.0.center" timestamp="1607920753628">
+    <state x="602" y="116" key="#xdebugger.XInspectDialog/0.0.1366.728@0.0.1366.728" timestamp="1607963774065" />
+    <state x="463" y="73" key="FileChooserDialogImpl" timestamp="1608316119313">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="212" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607920753628" />
-    <state width="1323" height="212" key="GridCell.Tab.0.left" timestamp="1607920753628">
+    <state x="463" y="73" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608316119313" />
+    <state width="1323" height="169" key="GridCell.Tab.0.bottom" timestamp="1608319936088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="212" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607920753628" />
-    <state width="1323" height="212" key="GridCell.Tab.0.right" timestamp="1607920753628">
+    <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608319936088" />
+    <state width="1323" height="169" key="GridCell.Tab.0.center" timestamp="1608319936088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="212" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607920753628" />
-    <state width="1323" height="212" key="GridCell.Tab.1.bottom" timestamp="1607920753628">
+    <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608319936088" />
+    <state width="1323" height="169" key="GridCell.Tab.0.left" timestamp="1608319936088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="212" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607920753628" />
-    <state width="1323" height="212" key="GridCell.Tab.1.center" timestamp="1607920753628">
+    <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608319936088" />
+    <state width="1323" height="169" key="GridCell.Tab.0.right" timestamp="1608319936088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="212" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1607920753628" />
-    <state width="1323" height="212" key="GridCell.Tab.1.left" timestamp="1607920753628">
+    <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608319936088" />
+    <state width="1323" height="168" key="GridCell.Tab.1.bottom" timestamp="1607966168537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="212" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1607920753628" />
-    <state width="1323" height="212" key="GridCell.Tab.1.right" timestamp="1607920753628">
+    <state width="1323" height="168" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607966168537" />
+    <state width="1323" height="168" key="GridCell.Tab.1.center" timestamp="1607966168537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="212" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1607920753628" />
-    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1607920591115">
+    <state width="1323" height="168" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1607966168537" />
+    <state width="1323" height="168" key="GridCell.Tab.1.left" timestamp="1607966168537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1607920591115" />
-    <state x="413" y="124" key="extract.method.dialog" timestamp="1607881456948">
+    <state width="1323" height="168" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1607966168537" />
+    <state width="1323" height="168" key="GridCell.Tab.1.right" timestamp="1607966168537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="124" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1607881456948" />
+    <state width="1323" height="168" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1607966168537" />
+    <state x="348" y="68" key="NewModule_or_Project.wizard" timestamp="1608316121629">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="348" y="68" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1608316121629" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1608316123953">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1608316123953" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1607963790937">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1607963790937" />
+    <state x="387" y="255" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1608319451783">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="387" y="255" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1608319451783" />
+    <state x="413" y="124" key="extract.method.dialog" timestamp="1607960849581">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="124" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1607960849581" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1607803626359">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -369,11 +389,6 @@
           <url>file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/stqa/addressbook/appmanager/DbHelper.java</url>
           <line>44</line>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/stqa/mantis/tests/RegistrationTests.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/stqa/mantis/appmanager/JamesHelper.java</url>
@@ -390,13 +405,10 @@
           <line>136</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/stqa/mantis/appmanager/RegistrationHelper.java</url>
-          <line>17</line>
-          <properties class="stqa.mantis.appmanager.RegistrationHelper" method="finish">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="38" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/stqa/mantis/appmanager/HttpSession.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
