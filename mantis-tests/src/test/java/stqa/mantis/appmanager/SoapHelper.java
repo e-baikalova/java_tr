@@ -29,7 +29,7 @@ public class SoapHelper {
         .collect(Collectors.toSet());
   }
 
-  public MantisConnectPortType getMantisConnect() throws ServiceException, MalformedURLException {
+  private MantisConnectPortType getMantisConnect() throws ServiceException, MalformedURLException {
     return new MantisConnectLocator()
         .getMantisConnectPort(new URL("http://localhost/mantisbt-2.24.2/api/soap/mantisconnect.php"));
   }
