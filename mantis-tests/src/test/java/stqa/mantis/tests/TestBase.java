@@ -1,6 +1,7 @@
 package stqa.mantis.tests;
 
-import biz.futureware.mantis.rpc.soap.client.*;
+import biz.futureware.mantis.rpc.soap.client.IssueData;
+import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.SkipException;
 import org.testng.annotations.AfterSuite;
@@ -11,7 +12,6 @@ import javax.xml.rpc.ServiceException;
 import java.io.File;
 import java.math.BigInteger;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.rmi.RemoteException;
 
 public class TestBase {
@@ -32,9 +32,8 @@ public class TestBase {
   }
 
   public boolean isIssueOpen(int issueId) throws MalformedURLException, ServiceException, RemoteException {
-    MantisConnectPortType mc = new MantisConnectLocator()
-        .getMantisConnectPort(new URL("http://localhost/mantisbt-2.24.2/api/soap/mantisconnect.php"));
-    IssueData issue = mc.mc_issue_get("administrator", "root", BigInteger.valueOf(issueId));
+    MantisConnectPortType mc = app.soap().getMantisConnect();
+    IssueData issue = mc.mc_issue_get(app.getProperty("web.login"), app.getProperty("web.password"), BigInteger.valueOf(issueId));
     String status = issue.getStatus().getName();
     if (status.equals("resolved") || status.equals("closed")) {
       return true;
