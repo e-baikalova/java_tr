@@ -17,6 +17,12 @@ import static org.testng.Assert.assertEquals;
 public class RestTests {
 
   @Test
+  public void testGetIssues() throws IOException {
+    Set<Issue> allIssues = getIssues();
+    System.out.println(allIssues);
+  }
+
+  @Test(enabled = false)
   public void testCreateIssue() throws IOException {
     Set<Issue> oldIssues = getIssues();
     Issue newIssue = new Issue().withSubject("Test issue - #001").withDescription("new test issue");
@@ -28,6 +34,7 @@ public class RestTests {
 
   private Set<Issue> getIssues() throws IOException {
     String json = getExecutor().execute(Request.Get("http://demo.bugify.com/api/issues.json"))
+//    String json = getExecutor().execute(Request.Get("https://bugify.stqa.ru/api/issues.json"))
         .returnContent().asString();
     JsonElement parsed = new JsonParser().parse(json);
     JsonElement issues = parsed.getAsJsonObject().get("issues");
@@ -35,11 +42,13 @@ public class RestTests {
   }
 
   private Executor getExecutor() {
-    return Executor.newInstance().auth("28accbe43ea112d9feb328d2c00b3eed==", "");
+    return Executor.newInstance().auth("28accbe43ea112d9feb328d2c00b3eed==", ""); //demo.bugify.com/api
+//    return Executor.newInstance().auth("288f44776e7bec4bf44fdfeb1e646490==", ""); //bugify.stqa.ru/api
   }
 
   private int createIssue(Issue newIssue) throws IOException {
-    String json = getExecutor().execute(Request.Post("http://demo.bugify.com/api/issues.json")
+    String json = getExecutor().execute(Request.Get("http://demo.bugify.com/api/issues.json")
+//    String json = getExecutor().execute(Request.Post("https://bugify.stqa.ru/api/issues.json")
         .bodyForm(new BasicNameValuePair("subject", newIssue.getSubject()),
             new BasicNameValuePair("description", newIssue.getDescription())))
         .returnContent().asString();

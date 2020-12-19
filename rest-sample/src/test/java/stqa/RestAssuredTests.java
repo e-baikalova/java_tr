@@ -31,7 +31,7 @@ public class RestAssuredTests {
   }
 
   private Set<Issue> getIssues() throws IOException {
-    String json = RestAssured.get("http://demo.bugify.com/api/issues.json").asString();
+    String json = RestAssured.get("https://demo.bugify.com/api/issues.json").asString();
     JsonElement parsed = new JsonParser().parse(json);
     JsonElement issues = parsed.getAsJsonObject().get("issues");
     return new Gson().fromJson(issues, new TypeToken<Set<Issue>>(){}.getType());
@@ -41,7 +41,7 @@ public class RestAssuredTests {
     String json = RestAssured.given()
         .parameter("subject", newIssue.getSubject())
         .parameter("description", newIssue.getDescription())
-        .post("http://demo.bugify.com/api/issues.json").asString();
+        .post("https://demo.bugify.com/api/issues.json").asString();
     JsonElement parsed = new JsonParser().parse(json);
     return parsed.getAsJsonObject().get("issue_id").getAsInt();
   }
