@@ -48,7 +48,7 @@ public class SoapTests extends TestBase{
 
   @Test
   public void TestIssueStatus() throws RemoteException, MalformedURLException, ServiceException {
-    skipIfNotFixed(3);
+    skipIfNotFixed(1);
 //    MantisConnectPortType mc = new MantisConnectLocator()
 //        .getMantisConnectPort(new URL("http://localhost/mantisbt-2.24.2/api/soap/mantisconnect.php"));
 //    ProjectData[] projects = mc.mc_projects_get_user_accessible("administrator", "root");

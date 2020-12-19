@@ -36,10 +36,10 @@ public class TestBase {
     IssueData issue = mc.mc_issue_get(app.getProperty("web.login"), app.getProperty("web.password"), BigInteger.valueOf(issueId));
     String status = issue.getStatus().getName();
     if (status.equals("resolved") || status.equals("closed")) {
-      return true;
+      return false;
     }
     else {
-      return false;
+      return true;
     }
   }
 
