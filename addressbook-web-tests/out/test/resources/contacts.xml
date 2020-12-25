@@ -1,6 +1,6 @@
 <list>
   <contact>
-    <id>100</id>
+    <id>1000</id>
     <firstname>name0</firstname>
     <lastname>lname0</lastname>
     <address>test address 0</address>
@@ -10,7 +10,7 @@
     <email2>test_200@email.com</email2>
   </contact>
   <contact>
-    <id>101</id>
+    <id>1001</id>
     <firstname>name1</firstname>
     <lastname>lname1</lastname>
     <address>test address 1</address>
@@ -20,7 +20,7 @@
     <email2>test_201@email.com</email2>
   </contact>
   <contact>
-    <id>102</id>
+    <id>1002</id>
     <firstname>name2</firstname>
     <lastname>lname2</lastname>
     <address>test address 2</address>

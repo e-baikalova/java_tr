@@ -30,6 +30,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6074f36c-f66a-4540-b896-6fbf3e21f349" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/stqa/addressbook/appmanager/ApplicationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/stqa/addressbook/appmanager/ApplicationManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/resources/testng-contacts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/resources/testng-contacts.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,32 +154,13 @@
       <command value="gradle dependencies" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.EquationTests">
+  <component name="RunManager" selected="TestNG.ContactCreationTests">
     <configuration name="GithubTests.testCommits" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/github-sample" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;GithubTests.testCommits&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="RestAssuredTests.testCreateIssue" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/rest-sample" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stqa.RestAssuredTests.testCreateIssue&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -229,6 +212,33 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="ContactCreationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stqa.addressbook.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="stqa.addressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="stqa.addressbook.tests.ContactCreationTests" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EquationTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <useClassPathOnly />
       <option name="SUITE_NAME" value="" />
@@ -270,18 +280,18 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.RestTests.testCreateIssue" />
-      <item itemvalue="Gradle.RestAssuredTests.testCreateIssue" />
       <item itemvalue="Gradle.RestTests.testGetIssues" />
       <item itemvalue="Gradle.GithubTests.testCommits" />
       <item itemvalue="TestNG.EquationTests" />
+      <item itemvalue="TestNG.ContactCreationTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ContactCreationTests" />
         <item itemvalue="TestNG.EquationTests" />
         <item itemvalue="Gradle.GithubTests.testCommits" />
         <item itemvalue="Gradle.RestTests.testGetIssues" />
         <item itemvalue="Gradle.RestTests.testCreateIssue" />
-        <item itemvalue="Gradle.RestTests.testGetIssues" />
       </list>
     </recent_temporary>
   </component>
