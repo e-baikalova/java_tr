@@ -1,0 +1,33 @@
+[
+  {
+    "id": 200,
+    "firstname": "name0",
+    "middlename": "T",
+    "lastname": "lname0",
+    "company": "TestCorp",
+    "title": "CEO",
+    "address": "test address 0",
+    "phone": "1000000",
+    "group": "test 0",
+    "mobileNumber": "200(00)00",
+    "workNumber": "300-00-00",
+    "email": "test_100@email.com",
+    "email2": "test_200@email.com",
+    "email3": "test_300@email.com"
+  },
+  {
+    "id": 201,
+    "firstname": "name1",
+    "lastname": "lname1",
+    "company": "TestCorp2",
+    "title": "CEO",
+    "address": "test address 1",
+    "phone": "1000001",
+    "group": "test 0",
+    "mobileNumber": "200(00)01",
+    "workNumber": "300-00-01",
+    "email": "test1_100@email.com",
+    "email2": "test1_200@email.com",
+    "secHome": "12645432"
+  }
+]

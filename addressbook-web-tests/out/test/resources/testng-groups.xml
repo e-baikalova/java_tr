@@ -3,9 +3,9 @@
 <suite name="Suite1" verbose="1" >
     <test name="Groups" >
         <classes>
-<!--            <class name="stqa.addressbook.tests.GroupCreationTests" />-->
+            <class name="stqa.addressbook.tests.GroupCreationTests" />
             <class name="stqa.addressbook.tests.GroupModificationTests" />
-<!--            <class name="stqa.addressbook.tests.GroupDeletionTests" />-->
+            <class name="stqa.addressbook.tests.GroupDeletionTests" />
         </classes>
     </test>
 </suite>
